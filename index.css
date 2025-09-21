@@ -32,7 +32,6 @@
     text-decoration: none;
     cursor: default;
     font-size: 14px;
-
 }
 
 .section-1 .right-side .more a {
@@ -60,7 +59,6 @@
     border-radius: 5px;
     padding: 20px;
     background-color: rgb(244, 245, 248);
-
 }
 
 .section-1 .menu .links a {
@@ -70,7 +68,6 @@
 
 .section-1 .search-buttons {
     display: flex;
-
 }
 
 .section-1 .search-buttons img {
@@ -84,11 +81,11 @@
     border-radius: 8px;
     background-color: black;
     color: aliceblue;
-    padding: 5px 20px 5px 20px
+    padding: 5px 20px 5px 20px;
 }
 
 .section-1 .product-card {
-    background-color: #1E1E1E;
+    background-color: #1e1e1e;
     color: white;
     padding: 30px;
     max-width: 1200px;
@@ -103,7 +100,7 @@
 .section-1 .hight-side {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 40px
+    margin-bottom: 40px;
 }
 
 .section-1 .product-card h2 {
@@ -125,7 +122,6 @@
     align-items: center;
     padding: 8px 0;
     border-bottom: 1px solid #333;
-
 }
 
 .section-1 .spec-row input {
@@ -167,7 +163,6 @@
 .section-1 .buttons {
     display: flex;
     justify-content: space-between;
-
 }
 
 .section-1 .about-us .title-container h1 {
@@ -301,7 +296,6 @@
 .section-1 .contact-text h2 {
     font-size: 24px;
     margin-bottom: 15px;
-
 }
 
 .section-1 .contact-text p {
@@ -424,7 +418,6 @@
     border-radius: 5px;
     padding: 20px;
     background-color: rgb(244, 245, 248);
-
 }
 
 .section-2 .menu .links a {
@@ -434,7 +427,6 @@
 
 .section-2 .search-buttons {
     display: flex;
-
 }
 
 .section-2 .search-buttons img {
@@ -448,7 +440,7 @@
     border-radius: 8px;
     background-color: black;
     color: aliceblue;
-    padding: 5px 20px 5px 20px
+    padding: 5px 20px 5px 20px;
 }
 
 .section-2 .all-production {
@@ -475,7 +467,7 @@
 
 .section-2 .delivery .container p {
     font-size: 16px;
-    color: rgb(117, 117, 117)
+    color: rgb(117, 117, 117);
 }
 
 .section-2 .delivery .container h2 {
@@ -509,23 +501,31 @@
     font-weight: 400;
 }
 
-.section-2 .buttons-menu .discounts {
+.section-2 .main {
+    gap: 40px;
     display: flex;
-    justify-content: space-between;
-    font-family: Golos;
-    font-size: 16px;
-    font-weight: 400;
 }
 
-.section-2 .main {
-    display: flex;
+.section-2 .catalog {
+    gap: 10px;
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 }
 
 .section-2 .buttons-menu {
     display: flex;
-    flex-direction: column;
+    flex-shrink: 0;
     max-width: 240px;
-    margin-right: 40px;
+    flex-direction: column;
+}
+
+.section-2 .buttons-menu .discounts {
+    display: flex;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: Golos;
+    justify-content: space-between;
 }
 
 .section-2 .top-containers {
@@ -542,10 +542,6 @@
     padding: 20px;
 }
 
-.section-2 .item {
-    max-width: 289px;
-}
-
 .section-2 .buttons-menu button {
     all: unset;
     font-size: 20px;
@@ -558,12 +554,10 @@
 .section-2 .item {
     border-radius: 16px;
     background-color: rgb(244, 245, 248);
-    margin-right: 15px;
 }
 
 .section-2 .item img {
     padding-bottom: 28px;
-
 }
 
 .section-2 .item .line {
@@ -597,9 +591,9 @@
 .section-2 .item button {
     border-radius: 8px;
     padding: 12px 20px 12px 20px;
-    width: 249px;
     background-color: #1a1a1a;
     color: aliceblue;
+    width: 100%;
 }
 
 .section-2 .middel-containers {
@@ -615,7 +609,6 @@
 .section-2 .container-button {
     display: flex;
     justify-content: center;
-
 }
 
 .section-2 .container-button button {
@@ -646,7 +639,6 @@
 .section-2 .contact-text h2 {
     font-size: 24px;
     margin-bottom: 15px;
-
 }
 
 .section-2 .contact-text p {
@@ -855,6 +847,8 @@ info {
     position: absolute;
     align-items: center;
     gap: 4px;
+    background-color: gray;
+    border-radius: 8px;
 }
 
 .tag {
