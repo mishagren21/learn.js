@@ -1,15 +1,15 @@
 * {
     list-style: none;
     margin: 0;
-    font-family: "Roboto", serif;
     box-sizing: border-box;
+    font-family: "Golos Text", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+
 }
 
-.section-1 {
-    margin-bottom: 100px;
-}
-
-.section-1 header {
+header {
     display: flex;
     justify-content: space-between;
     margin-bottom: 28px;
@@ -17,15 +17,19 @@
     padding: 5px 10px 5px 10px;
 }
 
-.section-1 .right-side {
+header .left-side {
+    padding-left: 42px;
+}
+
+header .right-side {
     display: flex;
 }
 
-.section-1 .right-side .contacts {
+header .right-side .contacts {
     margin-right: 82px;
 }
 
-.section-1 .right-side .contacts a {
+header .right-side .contacts a {
     padding-left: 32px;
     padding-left: 32px;
     color: gray;
@@ -34,30 +38,36 @@
     font-size: 14px;
 }
 
-.section-1 .right-side .more a {
+header .right-side .more a {
     padding-left: 32px;
     color: gray;
     text-decoration: none;
     cursor: default;
     font-size: 14px;
 }
+
+.section-1 {
+    margin-inline: 40px;
+}
+
 
 .section-1 .menu {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 32px;
-    margin-inline: 30px;
+
 }
 
 .section-1 .menu .links {
     display: flex;
+    padding: 0;
 }
 
 .section-1 .menu .links li {
     margin-left: 8px;
     border-radius: 5px;
-    padding: 20px;
+    padding: 9px 20px;
     background-color: rgb(244, 245, 248);
 }
 
@@ -94,7 +104,6 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 120px;
-    margin-inline: 30px;
 }
 
 .section-1 .hight-side {
@@ -107,6 +116,10 @@
     font-size: 24px;
     margin-bottom: 20px;
     color: aliceblue;
+    font-family: Golos;
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 48px;
 }
 
 .section-1 .specs {
@@ -169,6 +182,20 @@
     margin-bottom: 60px;
 }
 
+
+
+.section-1 .commodity .title-container h1 {
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 48px;
+    margin-bottom: 20px;
+}
+.section-1 .commodity .title-container p {
+    color: gray;
+    font-size: 20px;
+font-weight: 400;
+line-height: 24px;
+}
 .section-1 .commodity {
     margin-bottom: 120px;
     margin-inline: 30 px;
@@ -194,8 +221,7 @@
 
 .section-1 .commodity .block {
     border-radius: 1px;
-    padding: 24px;
-    background-color: aliceblue;
+    padding: 24px;  
     margin-left: 16px;
 }
 
@@ -217,7 +243,15 @@
     align-items: center;
     margin-bottom: 40px;
 }
-
+.section-1 .aspire .left-containers {
+        margin-right: 15px;
+}
+.section-1 .aspire .middel-container {
+     margin-right: 15px;
+}
+.section-1 .aspire .right-containers {
+    margin-right: 15px;
+}
 .section-1 .aspire .container h2 {
     font-size: 20px;
 }
@@ -232,6 +266,7 @@
     padding: 19px;
     object-fit: contain;
     margin-right: 16px;
+    border: 1px solid rgba(233, 233, 233, 1);
 }
 
 .section-1 .why-we {
@@ -262,15 +297,6 @@
     display: flex;
     flex-direction: column;
 }
-
-.section-1 .why-we .logos .top-logos {
-    display: flex;
-}
-
-.section-1 .why-we .logos .bottom-logos {
-    display: flex;
-}
-
 .section-1 .why-we .logos img {
     margin-right: 16px;
 }
@@ -337,71 +363,88 @@
     margin-top: 45px;
 }
 
-.section-1 .finishing {
+.footer .finishing {
     display: flex;
     justify-content: space-between;
 }
 
-.section-1 .logo-img {
+.footer .logo-img {
     margin-bottom: 68px;
+    padding-top: 24px;
+
 }
 
-.section-1 .functions {
+.footer .functions {
     display: flex;
 }
 
-.section-1 .footer {
-    margin-inline: 30px;
+ .footer {
+    background-color: rgba(244, 245, 248, 1);
+    margin-bottom: 100px;
+    padding-inline: 40px;
 }
 
-.section-1 .finishing .info h1 {
+.footer .finishing .info h1 {
     font-size: 24px;
     color: rgb(22, 22, 22);
     margin-bottom: 21px;
 }
 
-.section-1 .finishing .info .contacts h1 {
+.footer .finishing .info .contacts h1 {
     margin-bottom: 8px;
 }
 
-.section-1 .finishing .info .contacts {
+.footer .finishing .info .contacts {
     margin-bottom: 24px;
 }
 
-.section-1 .finishing .info .social-buttons button {
+.footer .finishing .info .social-buttons button {
     border-radius: 8px;
     padding: 12px 20px 12px 20px;
     background-color: #1a1a1a;
     color: aliceblue;
 }
 
-.section-1 .functions h1 {
+.footer .functions h1 {
     margin-bottom: 32px;
 }
 
-.section-1 .functions li a {
+.footer .functions li a {
     font-size: 16px;
     color: rgb(22, 22, 22);
     text-decoration: none;
 }
 
-.section-1 .blogs {
+.footer .blogs {
     display: flex;
+    align-items: center;
+    padding-bottom: 80px;
 }
 
-.section-1 .functions li {
+.footer .functions li {
     margin-bottom: 12px;
 }
 
-.section-1 .blogs-buttoms button {
+ .footer .blogs-buttoms button {
     all: unset;
     margin-left: 8px;
 }
 
-.section-1 .blogs-buttoms {
+.footer .blogs-buttoms {
     margin-right: 24px;
 }
-
+.footer .blogs p {
+    color: rgba(117, 117, 117, 1);
+}
+.footer .rules {
+   display: flex;
+   justify-content: space-between;
+   padding-inline: 40px;
+    padding-bottom: 24px;
+}
+.footer .rules p {
+    color: rgba(117, 117, 117, 1);
+}
 .section-2 .menu {
     display: flex;
     align-items: center;
@@ -745,41 +788,41 @@
     margin-right: 24px;
 }
 
-info {
+.commodity .info {
     flex: 1;
 }
 
-.info h1 {
+.commodity .info h1 {
     font-size: 28px;
     margin-bottom: 20px;
     line-height: 1.3;
 }
 
-.specs {
+.commodity .specs {
     list-style: none;
     padding: 0;
     margin-bottom: 20px;
     color: #555;
 }
 
-.specs li {
+.commodity .specs li {
     margin-bottom: 8px;
 }
 
-.price {
+.commodity .price {
     font-size: 28px;
     color: #000;
     font-weight: bold;
     margin-bottom: 20px;
 }
 
-.buttons {
+.commodity .buttons {
     display: flex;
     gap: 10px;
     margin-bottom: 20px;
 }
 
-.consult,
+.commodity .consult,
 .cart {
     padding: 10px 20px;
     border: none;
@@ -788,37 +831,31 @@ info {
     font-weight: bold;
 }
 
-.consult {
+.commodity .consult {
     background-color: #000;
     color: #fff;
 }
 
-.cart {
+.commodity .cart {
     background-color: #fff;
     border: 1px solid #000;
     color: #000;
 }
 
-.contacts p {
+.commodity .contacts p {
     margin: 5px 0;
 }
 
-.contacts a {
+.commodity .contacts a {
     color: #000;
     text-decoration: none;
 }
 
-.image {
-    position: relative;
-    max-width: 350px;
-}
-
-.image img {
-    width: 100%;
+.commodity .image img {
     border-radius: 10px;
 }
 
-.badges {
+.commodity .badges {
     position: absolute;
     top: 10px;
     left: 10px;
@@ -826,7 +863,7 @@ info {
     gap: 6px;
 }
 
-.badge {
+.commodity .badge {
     font-size: 12px;
     padding: 4px 8px;
     border-radius: 4px;
@@ -834,15 +871,15 @@ info {
     font-weight: bold;
 }
 
-.badge.blue {
+.commodity .badge.blue {
     background-color: #3578e5;
 }
 
-.badge.green {
+.commodity .badge.green {
     background-color: #34a853;
 }
 
-.tags-container {
+.commodity .tags-container {
     display: flex;
     position: absolute;
     align-items: center;
@@ -851,7 +888,7 @@ info {
     border-radius: 8px;
 }
 
-.tag {
+.commodity .tag {
     border-radius: 8px;
     padding: 4px 8px 4px 8px;
     color: rgb(255, 255, 255);
@@ -863,14 +900,14 @@ info {
     text-align: left;
 }
 
-.tag.tag-blue {
+.commodity .tag.tag-blue {
     background-color: #3578e5;
 }
 
-.tag.tag-green {
+.commodity .tag.tag-green {
     background-color: rgb(48, 141, 119);
 }
 
-.tag.tag-red {
+.commodity .tag.tag-red {
     background-color: rgb(210, 25, 36);
 }
