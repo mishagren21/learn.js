@@ -4,10 +4,16 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>okoprom</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Golos+Text&display=swap"
+            rel="stylesheet"
+        />
         <link rel="stylesheet" href="./index.css" />
     </head>
     <body>
-          <header>
+        <header>
+            <div class="max-content">
                 <div class="left-side">
                     <img src="./img/logo.png" />
                 </div>
@@ -21,7 +27,8 @@
                         <a href="#">Гарантия</a>
                     </div>
                 </div>
-            </header>
+            </div>
+        </header>
         <div class="section-1">
             <div class="menu">
                 <ul class="links">
@@ -83,33 +90,30 @@
                     </p>
                 </div>
                 <div class="things">
-                    <div class="top-side">
-                        <div class="block">
-                            <h2>Станки для разделки кабеля</h2>
-                            <img src="./img/machine-small.png" />
-                        </div>
-                        <div class="block">
-                            <h2>Сепараторы</h2>
-                            <img src="./img/machine-blue.png" />
-                        </div>
-                        <div class="block">
-                            <h2>Станок для разделки теплообменников</h2>
-                            <img src="./img/machine-black.png" />
-                        </div>
+                    <div class="block">
+                        <h2>Станки для разделки кабеля</h2>
+                        <img src="./img/machine-small.png" />
                     </div>
-                    <div class="bottom-side">
-                        <div class="block">
-                            <h2>Рфзделка радиаторов</h2>
-                            <img src="./img/radiator.png" />
-                        </div>
-                        <div class="block">
-                            <h2>Запасные запчасти</h2>
-                            <img src="./img/things.png" />
-                        </div>
-                        <div class="block">
-                            <h2>Дргое</h2>
-                            <img src="./img/other.png" />
-                        </div>
+                    <div class="block">
+                        <h2>Сепараторы</h2>
+                        <img src="./img/machine-blue.png" />
+                    </div>
+                    <div class="block">
+                        <h2>Станок для разделки теплообменников</h2>
+                        <img src="./img/machine-black.png" />
+                    </div>
+
+                    <div class="block">
+                        <h2>Рфзделка радиаторов</h2>
+                        <img src="./img/radiator.png" />
+                    </div>
+                    <div class="block">
+                        <h2>Запасные запчасти</h2>
+                        <img src="./img/things.png" />
+                    </div>
+                    <div class="block">
+                        <h2>Дргое</h2>
+                        <img src="./img/other.png" />
                     </div>
                 </div>
             </div>
@@ -207,103 +211,101 @@
                     </p>
                 </div>
                 <div class="logos">
-                    <div class="top-logos">
-                        <img src="./img/logo-rf.png" />
-                        <img src="./img/logo-moscow.png" />
-                        <img src="./img/olimpiyski.png  " />
-                    </div>
-                    <div class="bottom-logos">
-                        <img src="./img/logo-btm.png" />
-                        <img src="./img/logo-ymz.png" />
-                        <img src="./img/logo-vtorchermet.png" />
-                    </div>
+                    <img src="./img/logo-rf.png" />
+                    <img src="./img/logo-moscow.png" />
+                    <img src="./img/olimpiyski.png" />
+
+                    <img src="./img/logo-btm.png" />
+                    <img src="./img/logo-ymz.png" />
+                    <img src="./img/logo-vtorchermet.png" />
                 </div>
             </div>
             <div class="contact-form">
-                <div class="contact-text">
-                    <h2>
-                        Будем рады ответить<br />на все интересующие<br />
-                        вопросы
-                    </h2>
-                    <p>
-                        Оставьте заявку и мы вам вскоре позвоним<br />и
-                        проконсультируем по всем интересующим вопросам
-                    </p>
+                <div class="max-content">
+                    <div class="contact-text">
+                        <h2>
+                            Будем рады ответить<br />на все интересующие<br />
+                            вопросы
+                        </h2>
+                        <p>
+                            Оставьте заявку и мы вам вскоре позвоним<br />и
+                            проконсультируем по всем интересующим вопросам
+                        </p>
+                    </div>
+                    <form class="form-fields">
+                        <input type="text" placeholder="Ваше имя" required />
+                        <input
+                            type="tel"
+                            placeholder="+7 (___) ___-__-__"
+                            required
+                        />
+                        <input
+                            type="email"
+                            placeholder="E-mail (необязательно)"
+                        />
+                        <button type="submit">Отправить</button>
+                    </form>
                 </div>
-                <form class="form-fields">
-                    <input type="text" placeholder="Ваше имя" required />
-                    <input
-                        type="tel"
-                        placeholder="+7 (___) ___-__-__"
-                        required
-                    />
-                    <input type="email" placeholder="E-mail (необязательно)" />
-                    <button type="submit">Отправить</button>
-                </form>
             </div>
-           
         </div>
-         <div class="footer">
-                <div class="logo-img">
-                    <img src="./img/logo.png" />
-                </div>
-                <div class="finishing">
-                    <div class="info">
-                        <h1>
-                            Тураевское шоссе дом 17, д.<br />
-                            Островцы, Раменский район,<br />
-                            МО, Россия
-                        </h1>
-                        <div class="contacts">
-                            <h1>+7 (800) 707-31-01</h1>
-                            <h1>okoprom@gmail.com</h1>
-                        </div>
-                        <div class="social-buttons">
-                            <button>Whatsapp</button>
-                            <button>Telegram</button>
-                        </div>
-                    </div>
-                    <div class="functions">
-                        <ul class="our-products">
-                            <h1>Наша продукция</h1>
-                            <li><a href="#">Для разделки кабеля</a></li>
-                            <li><a href="#">Сепараторы</a></li>
-                            <li>
-                                <a href="#"
-                                    >Для разделки<br />теплообменников</a
-                                >
-                            </li>
-                            <li><a href="#">Радиаторов</a></li>
-                            <li><a href="#">Части</a></li>
-                            <li><a href="#">Другое</a></li>
-                        </ul>
-                        <ul class="information">
-                            <h1>Информация</h1>
-                            <li><a href="#">Доставка и оплата</a></li>
-                            <li><a href="#">Гарантия</a></li>
-                            <li><a href="#">Служба контроля качества</a></li>
-                            <li><a href="#">Наше производство</a></li>
-                            <li><a href="#">О компании</a></li>
-                            <li><a href="#">Контакты</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="blogs">
-                    <div class="blogs-buttoms">
-                        <button><img src="./img/instagram-card.png" /></button>
-                        <button><img src="./img/youtube-card.png" /></button>
-                    </div>
-                    <p>
-                        Подписывайтесь на нас<br />
-                        в социальных сетях
-                    </p>
-                    </div>
-                    <div class="rules">
-                        <p>Интернет магазин "Окопром" © 2021 Все права защищены</p>
-                        <p>Политика конфиденциальности</p>
-                    </div>
-                
+        <div class="footer">
+            <div class="logo-img">
+                <img src="./img/logo.png" />
             </div>
+            <div class="finishing">
+                <div class="info">
+                    <h1>
+                        Тураевское шоссе дом 17, д.<br />
+                        Островцы, Раменский район,<br />
+                        МО, Россия
+                    </h1>
+                    <div class="contacts">
+                        <h1>+7 (800) 707-31-01</h1>
+                        <h1>okoprom@gmail.com</h1>
+                    </div>
+                    <div class="social-buttons">
+                        <button>Whatsapp</button>
+                        <button>Telegram</button>
+                    </div>
+                </div>
+                <div class="functions">
+                    <ul class="our-products">
+                        <h1>Наша продукция</h1>
+                        <li><a href="#">Для разделки кабеля</a></li>
+                        <li><a href="#">Сепараторы</a></li>
+                        <li>
+                            <a href="#">Для разделки<br />теплообменников</a>
+                        </li>
+                        <li><a href="#">Радиаторов</a></li>
+                        <li><a href="#">Части</a></li>
+                        <li><a href="#">Другое</a></li>
+                    </ul>
+                    <ul class="information">
+                        <h1>Информация</h1>
+                        <li><a href="#">Доставка и оплата</a></li>
+                        <li><a href="#">Гарантия</a></li>
+                        <li><a href="#">Служба контроля качества</a></li>
+                        <li><a href="#">Наше производство</a></li>
+                        <li><a href="#">О компании</a></li>
+                        <li><a href="#">Контакты</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="blogs">
+                <div class="blogs-buttoms">
+                    <button><img src="./img/instagram-card.png" /></button>
+                    <button><img src="./img/youtube-card.png" /></button>
+                </div>
+                <p>
+                    Подписывайтесь на нас<br />
+                    в социальных сетях
+                </p>
+            </div>
+            <div class="rules">
+                <p>Интернет магазин "Окопром" © 2021 Все права защищены</p>
+                <p>Политика конфиденциальности</p>
+            </div>
+        </div>
         <div class="section-2">
             <div class="menu">
                 <ul class="links">
@@ -456,7 +458,6 @@
                 </div>
             </div>
         </div>
-      
 
         <script>
             function subtractPercent(amount, percent = 0) {
