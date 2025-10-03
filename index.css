@@ -190,12 +190,14 @@ header .right-side .more a {
     line-height: 48px;
     margin-bottom: 20px;
 }
+
 .section-1 .commodity .title-container p {
     color: gray;
     font-size: 20px;
     font-weight: 400;
     line-height: 24px;
 }
+
 .section-1 .commodity {
     margin-bottom: 120px;
     margin-inline: 30 px;
@@ -232,15 +234,19 @@ header .right-side .more a {
     align-items: center;
     margin-bottom: 40px;
 }
+
 .section-1 .aspire .left-containers {
     margin-right: 15px;
 }
+
 .section-1 .aspire .middel-container {
     margin-right: 15px;
 }
+
 .section-1 .aspire .right-containers {
     margin-right: 15px;
 }
+
 .section-1 .aspire .container h2 {
     font-size: 20px;
 }
@@ -352,6 +358,11 @@ header .right-side .more a {
     margin-top: 45px;
 }
 
+.footer .width-container {
+    max-width: 1920px;
+    margin: auto;
+}
+
 .footer .finishing {
     display: flex;
     justify-content: space-between;
@@ -421,18 +432,27 @@ header .right-side .more a {
 .footer .blogs-buttoms {
     margin-right: 24px;
 }
+
 .footer .blogs p {
     color: rgba(117, 117, 117, 1);
 }
+
 .footer .rules {
     display: flex;
     justify-content: space-between;
     padding-inline: 40px;
     padding-bottom: 24px;
 }
+
 .footer .rules p {
     color: rgba(117, 117, 117, 1);
 }
+
+.section-2 {
+    max-width: 1920px;
+    margin: auto;
+}
+
 .section-2 .menu {
     display: flex;
     align-items: center;
@@ -509,6 +529,7 @@ header .right-side .more a {
     margin-bottom: 40px;
 }
 
+
 .section-2 .all-production .title-container {
     display: flex;
     align-items: center;
@@ -539,9 +560,8 @@ header .right-side .more a {
 
 .section-2 .catalog {
     gap: 10px;
-    flex-grow: 1;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
 }
 
 .section-2 .buttons-menu {
