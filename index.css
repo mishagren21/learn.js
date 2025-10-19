@@ -9,7 +9,6 @@
 }
 
 header {
-    margin-bottom: 28px;
     background: rgb(244, 245, 248);
 }
 
@@ -48,54 +47,57 @@ header .right-side .more a {
     font-size: 14px;
 }
 
-.section-1 {
-    max-width: 1920px;
-    margin-inline: auto;
-    padding-inline: 40px;
-    box-sizing: content-box;
-}
-
-.section-1 .menu {
+.menu {
+    top: 0;
+    z-index: 1;
     display: flex;
+    position: sticky;
+    max-width: 1920px;
+    padding-block: 30px;
     align-items: center;
+    padding-inline: 40px;
+    background-color: #fff;
     justify-content: space-between;
-    margin-bottom: 32px;
 }
 
-.section-1 .menu .links {
+.menu .links {
     padding: 0;
     gap: 8px;
     display: flex;
     align-items: center;
 }
 
-.section-1 .menu .links li {
+.menu .links a {
+    text-decoration: none;
+    color: black;
     border-radius: 5px;
     padding: 9px 20px;
     background-color: rgb(244, 245, 248);
 }
 
-.section-1 .menu .links a {
-    text-decoration: none;
-    color: black;
-}
-
-.section-1 .search-buttons {
+.search-buttons {
     display: flex;
 }
 
-.section-1 .search-buttons img {
+.search-buttons img {
     border-radius: 8px;
     background-color: rgb(244, 245, 248);
     padding: 10px 11px 10px 11px;
     margin-inline: 8px;
 }
 
-.section-1 .search-buttons button {
+.search-buttons button {
     border-radius: 8px;
     background-color: black;
     color: aliceblue;
     padding: 5px 20px 5px 20px;
+}
+
+.section-1 {
+    max-width: 1920px;
+    margin-inline: auto;
+    padding-inline: 40px;
+    box-sizing: content-box;
 }
 
 .section-1 .product-card {
@@ -128,7 +130,13 @@ header .right-side .more a {
     font-size: 14px;
     color: #bbbbbb;
     display: flex;
+    flex-grow: 1;
     flex-direction: column;
+    margin-right: 8px;
+}
+
+.section-1 .specs-container {
+    max-width: 400px;
 }
 
 .section-1 .spec-row {
@@ -157,6 +165,7 @@ header .right-side .more a {
     font-size: 22px;
     margin-top: 80px;
     color: aliceblue;
+    border-bottom: 1px solid aliceblue;
 }
 
 .section-1 .product-card .image img {
@@ -225,26 +234,15 @@ header .right-side .more a {
 }
 
 .section-1 .aspire {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     margin-bottom: 102px;
 }
 
 .section-1 .aspire .container {
     display: flex;
-    align-items: center;
     margin-bottom: 40px;
-}
-
-.section-1 .aspire .left-containers {
-    margin-right: 15px;
-}
-
-.section-1 .aspire .middel-container {
-    margin-right: 15px;
-}
-
-.section-1 .aspire .right-containers {
-    margin-right: 15px;
+    align-items: flex-start;
 }
 
 .section-1 .aspire .container h2 {
@@ -358,7 +356,7 @@ header .right-side .more a {
     margin-top: 45px;
 }
 
-.footer .width-container {
+.width-container {
     max-width: 1920px;
     margin: auto;
 }
@@ -451,29 +449,7 @@ header .right-side .more a {
 .section-2 {
     max-width: 1920px;
     margin: auto;
-}
-
-.section-2 .menu {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 102px;
-}
-
-.section-2 .menu .links {
-    display: flex;
-}
-
-.section-2 .menu .links li {
-    margin-left: 8px;
-    border-radius: 5px;
-    padding: 20px;
-    background-color: rgb(244, 245, 248);
-}
-
-.section-2 .menu .links a {
-    text-decoration: none;
-    color: black;
+    padding-inline: 40px;
 }
 
 .section-2 .search-buttons {
@@ -494,26 +470,27 @@ header .right-side .more a {
     padding: 5px 20px 5px 20px;
 }
 
-.section-2 .all-production {
-    margin-inline: 30px;
-}
-
 .section-2 .delivery {
-    display: flex;
-    margin-inline: 30px;
+    gap: 20px;
+    display: grid;
     margin-bottom: 60px;
+    grid-template-columns: repeat(3, 1fr);
 }
 
 .section-2 .delivery .container {
+    gap: 16px;
     display: flex;
-    margin-right: 20px;
+    align-items: flex-start;
 }
 
-.section-2 .delivery .container img {
-    border-radius: 5px;
-    padding: 19px;
-    object-fit: contain;
-    margin-right: 16px;
+.section-2 .delivery .container span {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    border-radius: 8px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid gray;
 }
 
 .section-2 .delivery .container p {
@@ -523,12 +500,12 @@ header .right-side .more a {
 
 .section-2 .delivery .container h2 {
     font-size: 20px;
+    margin-bottom: 8px;
 }
 
 .section-2 .all-production {
     margin-bottom: 40px;
 }
-
 
 .section-2 .all-production .title-container {
     display: flex;
