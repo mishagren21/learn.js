@@ -8,6 +8,7 @@
     font-style: normal;
 }
 
+
 header {
     background: rgb(244, 245, 248);
 }
@@ -52,12 +53,13 @@ header .right-side .more a {
     z-index: 1;
     display: flex;
     position: sticky;
-    max-width: 1920px;
     padding-block: 30px;
     align-items: center;
     padding-inline: 40px;
     background-color: #fff;
     justify-content: space-between;
+    max-width: 1920px;
+    margin: auto;
 }
 
 .menu .links {
@@ -71,28 +73,39 @@ header .right-side .more a {
     text-decoration: none;
     color: black;
     border-radius: 5px;
-    padding: 9px 20px;
+    padding: 12px 20px;
     background-color: rgb(244, 245, 248);
 }
 
 .search-buttons {
     display: flex;
+    gap: 8px;
 }
-
-.search-buttons img {
-    border-radius: 8px;
-    background-color: rgb(244, 245, 248);
-    padding: 10px 11px 10px 11px;
-    margin-inline: 8px;
+.search-buttons .logo-btn  {
+     width: 44px;
+  height: 44px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  outline: none;
 }
-
-.search-buttons button {
-    border-radius: 8px;
-    background-color: black;
-    color: aliceblue;
-    padding: 5px 20px 5px 20px;
+.search-buttons .advice {
+    background-color: #222;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: 500;
+  outline: none;
 }
-
 .section-1 {
     max-width: 1920px;
     margin-inline: auto;
@@ -165,8 +178,9 @@ header .right-side .more a {
     font-size: 22px;
     margin-top: 80px;
     color: aliceblue;
-    border-bottom: 1px solid aliceblue;
+   border-bottom: 1px solid rgba(54, 56, 60, 1);
 }
+
 
 .section-1 .product-card .image img {
     background-color: aliceblue;
@@ -311,7 +325,13 @@ header .right-side .more a {
 .section-1 .contact-text {
     flex: 1 1 45%;
 }
+.section-1 .contact-text h2 {
+    font-size: 40px;
+}
 
+.section-1 .contact-text p {
+    font-size: 16px;
+}
 .section-1 .contact-text h2 {
     font-size: 24px;
     margin-bottom: 15px;
@@ -400,6 +420,7 @@ header .right-side .more a {
     padding: 12px 20px 12px 20px;
     background-color: #1a1a1a;
     color: aliceblue;
+    cursor: pointer;
 }
 
 .footer .functions h1 {
@@ -416,7 +437,9 @@ header .right-side .more a {
     display: flex;
     align-items: center;
     padding-bottom: 80px;
+    border-bottom: 1px solid rgba(233, 233, 233, 1);
 }
+
 
 .footer .functions li {
     margin-bottom: 12px;
@@ -430,7 +453,9 @@ header .right-side .more a {
 .footer .blogs-buttoms {
     margin-right: 24px;
 }
-
+.footer .blogs .blogs-buttoms button {
+    cursor: pointer;
+}
 .footer .blogs p {
     color: rgba(117, 117, 117, 1);
 }
@@ -440,6 +465,7 @@ header .right-side .more a {
     justify-content: space-between;
     padding-inline: 40px;
     padding-bottom: 24px;
+    padding-top: 10px;
 }
 
 .footer .rules p {
@@ -528,6 +554,7 @@ header .right-side .more a {
     margin-bottom: 32px;
     font-size: 16px;
     font-weight: 400;
+    cursor: pointer;
 }
 
 .section-2 .main {
@@ -552,8 +579,8 @@ header .right-side .more a {
     display: flex;
     font-size: 16px;
     font-weight: 400;
-    font-family: Golos;
     justify-content: space-between;
+    cursor: pointer;
 }
 
 .section-2 .top-containers {
@@ -565,7 +592,9 @@ header .right-side .more a {
     position: relative;
     padding: 8px;
 }
-
+.section-2 .tags-container {
+    
+}
 .section-2 .item .text-container {
     padding: 20px;
 }
@@ -574,9 +603,9 @@ header .right-side .more a {
     all: unset;
     font-size: 20px;
     margin-bottom: 32px;
-    font-family: Golos;
     font-size: 16px;
     font-weight: 400;
+    cursor: pointer;
 }
 
 .section-2 .item {
@@ -591,7 +620,8 @@ header .right-side .more a {
 .section-2 .item .line {
     display: flex;
     justify-content: space-between;
-    padding-bottom: 16px;
+    padding-bottom: 7px;
+    border-bottom: 1px solid rgba(233, 233, 233, 1);
 }
 
 .section-2 .line .label {
@@ -622,6 +652,7 @@ header .right-side .more a {
     background-color: #1a1a1a;
     color: aliceblue;
     width: 100%;
+    cursor: pointer;
 }
 
 .section-2 .middel-containers {
