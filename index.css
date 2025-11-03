@@ -8,7 +8,6 @@
     font-style: normal;
 }
 
-
 header {
     background: rgb(244, 245, 248);
 }
@@ -81,30 +80,30 @@ header .right-side .more a {
     display: flex;
     gap: 8px;
 }
-.search-buttons .logo-btn  {
-     width: 44px;
-  height: 44px;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s ease;
-  outline: none;
+.search-buttons .logo-btn {
+    width: 44px;
+    height: 44px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    outline: none;
 }
 .search-buttons .advice {
     background-color: #222;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  padding: 14px 28px;
-  font-size: 16px;
-  cursor: pointer;
-  font-weight: 500;
-  outline: none;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 500;
+    outline: none;
 }
 .section-1 {
     max-width: 1920px;
@@ -178,9 +177,8 @@ header .right-side .more a {
     font-size: 22px;
     margin-top: 80px;
     color: aliceblue;
-   border-bottom: 1px solid rgba(54, 56, 60, 1);
+    border-bottom: 1px solid rgba(54, 56, 60, 1);
 }
-
 
 .section-1 .product-card .image img {
     background-color: aliceblue;
@@ -440,7 +438,6 @@ header .right-side .more a {
     border-bottom: 1px solid rgba(233, 233, 233, 1);
 }
 
-
 .footer .functions li {
     margin-bottom: 12px;
 }
@@ -593,7 +590,6 @@ header .right-side .more a {
     padding: 8px;
 }
 .section-2 .tags-container {
-    
 }
 .section-2 .item .text-container {
     padding: 20px;
@@ -895,16 +891,15 @@ header .right-side .more a {
     background-color: #34a853;
 }
 
-.commodity .tags-container {
+.catalog .tags-container {
     display: flex;
     position: absolute;
     align-items: center;
     gap: 4px;
-    background-color: gray;
     border-radius: 8px;
 }
 
-.commodity .tag {
+.catalog .tag {
     border-radius: 8px;
     padding: 4px 8px 4px 8px;
     color: rgb(255, 255, 255);
@@ -916,14 +911,14 @@ header .right-side .more a {
     text-align: left;
 }
 
-.commodity .tag.tag-blue {
+.catalog .tag.tag-blue {
     background-color: #3578e5;
 }
 
-.commodity .tag.tag-green {
+.catalog .tag.tag-green {
     background-color: rgb(48, 141, 119);
 }
 
-.commodity .tag.tag-red {
+.catalog .tag.tag-red {
     background-color: rgb(210, 25, 36);
 }
