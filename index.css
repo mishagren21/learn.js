@@ -593,7 +593,7 @@ header .right-side .more a {
     padding: 8px;
 }
 .section-2 .tags-container {
-    
+      
 }
 .section-2 .item .text-container {
     padding: 20px;
@@ -927,3 +927,17 @@ header .right-side .more a {
 .commodity .tag.tag-red {
     background-color: rgb(210, 25, 36);
 }
+  dialog {
+    border: none;
+    border-radius: 10px;
+    padding: 20px 30px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50% );
+  }
+    dialog::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+  }

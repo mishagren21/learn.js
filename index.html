@@ -338,7 +338,7 @@
             </div>
             <div class="main">
                 <div class="buttons-menu">
-                    <button class="production">
+                    <button class="production" id="open-btn">
                         Вся продукция<img src="./img/kvadrat.png" />
                     </button>
                     <button class="discounts">Скидки <span>%</span></button>
@@ -348,6 +348,12 @@
                     <button>Станки для разделки теплообменников</button>
                     <button>Разделка радиаторов</button>
                     <button>Другое</button>
+                </div>
+                <div class="overlay" id="overlay">
+                    <div class="dialog">
+                        <h2>Виберете лейбел</h2>
+                        <button id="close-btn">Закрити</button>
+                    </div>
                 </div>
                 <div class="catalog" id="catalog">
                     <div class="container-button">
@@ -435,6 +441,26 @@
             </div>
         </div>
     </div>
+    <h1>Виберете лейбел</h1>
+<p>Нажмите на кнопку для выбора Label</p>
+
+<p>
+<button onclick="showDialog()">Открыть</button>
+<button onclick="closeDialog()">Закрыть</button>
+</p>
+
+<dialog id="myDialog">
+    <form action="">
+  <label for="select">Выберите</label>
+  <select name="labels" id="labels">
+    <option value="press">Прес</option>
+    <option value="armour">Броня</option>
+    <option value="discount">-10%</option>
+  </select>
+  <br><br>
+  <input type="submit" value="Подтверждать">
+</form>
+</dialog>
 
     <script>
         function subtractPercent(amount, percent = 0) {
@@ -663,6 +689,31 @@
         });
 
         catalog.innerHTML = generatedHtml;
+       var allTags = [];
+items.forEach((item) => {
+  if (item.tags) {
+    item.tags.forEach((newTag) => {
+      if (!allTags.includes(newTag.label)) {
+        allTags.push(newTag.label);
+      }
+    });
+  }
+});
+
+console.log(allTags);
+ 
+
+
+const dialog = document.getElementById("myDialog"); 
+
+function showDialog() { 
+  dialog.showModal(); 
+} 
+
+function closeDialog() { 
+  dialog.close(); 
+} 
+ 
     </script>
 </body>
 
