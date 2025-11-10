@@ -357,7 +357,7 @@
                 </div>
                 <div class="main">
                     <div class="buttons-menu">
-                        <button class="production">
+                        <button class="production" onclick="showFilterDialog()">
                             Вся продукция<img src="./img/kvadrat.png" />
                         </button>
                         <button class="discounts">Скидки <span>%</span></button>
@@ -368,9 +368,12 @@
                         <button>Разделка радиаторов</button>
                         <button>Другое</button>
                     </div>
-                    <div class="catalog" id="catalog">
-                        <div class="container-button">
-                            <button>Показать ещё</button>
+                    <div class="catalog-container">
+                        <div id="selected-filters"></div>
+                        <div class="catalog" id="catalog">
+                            <div class="container-button">
+                                <button>Показать ещё</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -461,10 +464,62 @@
             </div>
         </div>
 
+        <dialog id="myDialog">
+            <label for="select">Choose</label>
+            <select name="labels" id="filterSelect"></select>
+            <br /><br />
+            <button type="button" onclick="selectFilter()">
+                Save and Close
+            </button>
+        </dialog>
+
         <script>
             function subtractPercent(amount, percent = 0) {
                 return amount - (amount * percent) / 100;
             }
+            const generateCatalogTemplate = (items = []) => {
+                let generatedHtml = "";
+                items.forEach((item) => {
+                    let tags = "";
+                    item?.tags?.forEach(
+                        (tag) =>
+                            (tags += `<span class="tag ${tag.value}">${tag.label}</span>`),
+                    );
+                    generatedHtml += `
+                        <div class="item" data-id=${item.id}>
+                          <div class="image-container">
+                              <div class="tags-container">
+                                ${tags}
+                              </div>
+                              <img src=${item.img}>
+                          </div>
+                          <div class="text-container">
+                              <h1>${item.name}</h1>
+                              <div class="text">
+                                  <div class="line">
+                                      <p class="label">Вес</p>
+                                      <p class="value">${item.weightKg}</p>
+                                  </div>
+                                  <div class="line">
+                                      <p class="label">Двигатель</p>
+                                      <p class="value">${item.motor.voltage}</p>
+                                  </div>
+                                  <div class="line">
+                                      <p class="label">Диам. Обраб.</p>
+                                      <p class="value">${item.motor.diametr}</p>
+                                  </div>
+                              </div>
+                              <div class="price">
+                                  <p>${item.price} ₽</p>
+                                  ${item?.discount ? `<p class="discount">${subtractPercent(item.price, item.discount)} ₽</p>` : ""}
+                              </div>
+                              <button>Купить</button>
+                            </div>
+                        </div>
+                    `;
+                });
+                return generatedHtml;
+            };
 
             const items = [
                 {
@@ -484,6 +539,10 @@
                         },
                         {
                             label: "Броня",
+                            value: "tag-blue",
+                        },
+                        {
+                            label: "Misha",
                             value: "tag-blue",
                         },
                     ],
@@ -645,75 +704,70 @@
             ];
 
             const catalog = document.querySelector("#catalog");
-            let generatedHtml = "";
+            const dialog = document.querySelector("#myDialog");
+            const filterSelect = document.querySelector("#filterSelect");
+            const selectFilters = document.querySelector("#selected-filters");
+
+            const searchParams = new URLSearchParams(window.location.search);
+            console.log(searchParams.get("foo")); // a
+
+            let generatedHtml = generateCatalogTemplate(items);
+            let generatedTagsHtml = "";
+            const allTags = [];
 
             items.forEach((item) => {
-                let tags = "";
-                item?.tags?.forEach(
-                    (tag) =>
-                        (tags += `<span class="tag ${tag.value}">${tag.label}</span>`),
-                );
-                generatedHtml += `
-                  <div class="item" data-id=${item.id}>
-                    <div class="image-container">
-                        <div class="tags-container">
-                          ${tags}
-                        </div>
-                        <img src=${item.img}>
-                    </div>
-                    <div class="text-container">
-                        <h1>${item.name}</h1>
-                        <div class="text">
-                            <div class="line">
-                                <p class="label">Вес</p>
-                                <p class="value">${item.weightKg}</p>
-                            </div>
-                            <div class="line">
-                                <p class="label">Двигатель</p>
-                                <p class="value">${item.motor.voltage}</p>
-                            </div>
-                            <div class="line">
-                                <p class="label">Диам. Обраб.</p>
-                                <p class="value">${item.motor.diametr}</p>
-                            </div>
-                        </div>
-                        <div class="price">
-                            <p>${item.price} ₽</p>
-                            ${item?.discount ? `<p class="discount">${subtractPercent(item.price, item.discount)} ₽</p>` : ""}
-                        </div>
-                        <button>Купить</button>
-                      </div>
-                  </div>
-              `;
+                if (item.tags) {
+                    item.tags.forEach((newTag) => {
+                        if (!allTags.includes(newTag.label)) {
+                            allTags.push(newTag.label);
+                        }
+                    });
+                }
             });
 
-        catalog.innerHTML = generatedHtml;
-       var allTags = [];
-items.forEach((item) => {
-  if (item.tags) {
-    item.tags.forEach((newTag) => {
-      if (!allTags.includes(newTag.label)) {
-        allTags.push(newTag.label);
-      }
-    });
-  }
-});
+            allTags.forEach((item) => {
+                generatedTagsHtml += `<option value='${item}'>${item}</option>`;
+            });
 
-console.log(allTags);
- 
+            const clearFilter = () => {
+                selectFilters.innerHTML = "";
 
+                const generatedHtml = generateCatalogTemplate(items);
 
-const dialog = document.getElementById("myDialog"); 
+                catalog.innerHTML = generatedHtml;
+            };
 
-function showDialog() { 
-  dialog.showModal(); 
-} 
+            const selectFilter = () => {
+                if (filterSelect.value) {
+                    const filteredItems = items.filter((item) => {
+                        if (!item.tags) return false;
+                        return item.tags.find(
+                            (tag) =>
+                                tag.label.toLowerCase() ===
+                                filterSelect.value.toLowerCase(),
+                        );
+                    });
 
-function closeDialog() { 
-  dialog.close(); 
-} 
- 
-    </script>
-</body>
+                    selectFilters.innerHTML = `<span onclick='clearFilter()'>${filterSelect.value}</span>`;
 
+                    const generatedHtml =
+                        generateCatalogTemplate(filteredItems);
+
+                    catalog.innerHTML = generatedHtml;
+                }
+                dialog.close();
+            };
+
+            catalog.innerHTML = generatedHtml;
+            filterSelect.innerHTML = generatedTagsHtml;
+
+            function showFilterDialog() {
+                dialog.showModal();
+            }
+
+            function closeFilterDialog() {
+                dialog.close();
+            }
+        </script>
+    </body>
 </html>

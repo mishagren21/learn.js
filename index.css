@@ -230,6 +230,10 @@ header .right-side .more a {
     grid-template-columns: repeat(3, 1fr);
 }
 
+.section-1 .commodity .things img {
+    max-width: 100%;
+}
+
 .section-1 .commodity .title-container {
     margin-bottom: 60px;
 }
@@ -563,6 +567,10 @@ header .right-side .more a {
     gap: 10px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+}
+
+.section-2 #selected-filters:not(:empty) {
+    margin-bottom: 10px;
 }
 
 .section-2 .buttons-menu {
@@ -922,17 +930,16 @@ header .right-side .more a {
 .catalog .tag.tag-red {
     background-color: rgb(210, 25, 36);
 }
-  dialog {
+dialog {
     border: none;
     border-radius: 10px;
     padding: 20px 30px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     text-align: center;
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50% );
-  }
-    dialog::backdrop {
+    inset: 0;
+    margin: auto;
+}
+dialog::backdrop {
     background: rgba(0, 0, 0, 0.5);
-  }
+}
