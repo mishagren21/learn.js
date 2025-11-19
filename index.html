@@ -768,6 +768,31 @@
             function closeFilterDialog() {
                 dialog.close();
             }
+
+
+       
+    if (tag) {
+        
+        const url = new URL(window.location);
+        url.searchParams.set("tag", tag);
+        window.history.pushState({}, "", url);
+
+       
+        const filteredItems = items.filter((item) => {
+            if (!item.tags) return false;
+            return item.tags.find(
+                (t) => t.label.toLowerCase() === tag.toLowerCase()
+            );
+        });
+
+        selectFilters.innerHTML = `<span onclick='clearFilter()'>${tag}</span>`;
+        catalog.innerHTML = generateCatalogTemplate(filteredItems);
+    }
+
+    dialog.close();
+
+
+            
         </script>
     </body>
 </html>
