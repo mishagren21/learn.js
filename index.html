@@ -486,7 +486,7 @@
                             (tags += `<span class="tag ${tag.value}">${tag.label}</span>`),
                     );
                     generatedHtml += `
-                        <div class="item" data-id=${item.id}>
+                      <a href="./item-detail.html?id=${item.id}" class="item" data-id=${item.id}>
                           <div class="image-container">
                               <div class="tags-container">
                                 ${tags}
@@ -515,7 +515,7 @@
                               </div>
                               <button>Купить</button>
                             </div>
-                        </div>
+                        </a>
                     `;
                 });
                 return generatedHtml;
@@ -734,6 +734,10 @@
 
                 const generatedHtml = generateCatalogTemplate(items);
 
+                const url = new URL(window.location);
+                url.searchParams.delete("tag");
+                window.history.pushState({}, "", url);
+
                 catalog.innerHTML = generatedHtml;
             };
 
@@ -748,7 +752,15 @@
                         );
                     });
 
-                    selectFilters.innerHTML = `<span onclick='clearFilter()'>${filterSelect.value}</span>`;
+                    const url = new URL(window.location);
+                    url.searchParams.set("tag", filterSelect.value);
+                    window.history.pushState({}, "", url);
+
+                    selectFilters.innerHTML = `
+                      <span>
+                          ${filterSelect.value}
+                          <button type="button" class="closeBtn" onclick='clearFilter()'>Close</button>
+                      </span>`;
 
                     const generatedHtml =
                         generateCatalogTemplate(filteredItems);
@@ -769,30 +781,7 @@
                 dialog.close();
             }
 
-
-       
-    if (tag) {
-        
-        const url = new URL(window.location);
-        url.searchParams.set("tag", tag);
-        window.history.pushState({}, "", url);
-
-       
-        const filteredItems = items.filter((item) => {
-            if (!item.tags) return false;
-            return item.tags.find(
-                (t) => t.label.toLowerCase() === tag.toLowerCase()
-            );
-        });
-
-        selectFilters.innerHTML = `<span onclick='clearFilter()'>${tag}</span>`;
-        catalog.innerHTML = generateCatalogTemplate(filteredItems);
-    }
-
-    dialog.close();
-
-
-            
+            dialog.close();
         </script>
     </body>
 </html>
