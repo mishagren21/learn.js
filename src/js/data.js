@@ -1,7 +1,7 @@
-  export const items = [
+export const items = [
   {
     id: 1,
-    img: "./img/automatic.png",
+    img: "automatic.png",
     name: "S2-3 Автоматический мини",
     weightKg: "13 кг",
     motor: {
@@ -61,7 +61,6 @@
     },
     price: 29990,
   },
-
   {
     id: 4,
     img: "./img/item-automatic.png",

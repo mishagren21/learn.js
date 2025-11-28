@@ -1,0 +1,23 @@
+{
+  "name": "learn",
+  "version": "1.0.0",
+  "description": "",
+  "source": "src/index.html",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mishagren21/learn.js.git"
+  },
+  "author": "Mishanya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mishagren21/learn.js/issues"
+  },
+  "homepage": "https://github.com/mishagren21/learn.js#readme",
+  "devDependencies": {
+    "parcel": "^2.16.1"
+  }
+}
