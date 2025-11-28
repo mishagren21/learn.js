@@ -13,10 +13,43 @@
     </head>
 
     <body>
-        Item Details
+         <main class="product">
+    <article class="product__card" aria-labelledby="product-name">
+      <img class="product__img" src="./img/item-automatic.png" alt="SG-006-1 Станок для разделки кабеля (Автоматический)" />
+
+      <div class="product__body">
+        <h1 id="product-name" class="product__title">SG-006-1 Станок для разделки кабеля (Автоматический)</h1>
+
+        <ul class="product__meta">
+          <li>Вага: <strong>13 кг</strong></li>
+          <li>Мотор: <span class="product__small">180 Вт, діаметр від 1.5 до 25 мм</span></li>
+        </ul>
+
+        <div class="product__pricing">
+          <div class="price">
+            <span class="price__old">₴39990</span>
+            <span class="price__new">₴35991</span> 
+          </div>
+          <div class="badges">
+            <span class="badge badge--red">-10%</span>
+            <span class="badge badge--green">Прес</span>
+            <span class="badge badge--blue">Броня</span>
+          </div>
+        </div>
+
+        <div class="product__actions">
+          <button class="btn">Додати в кошик</button>
+          <button class="btn btn--outline">Детальніше</button>
+        </div>
+      </div>
+    </article>
+  </main>
+
+    
 
         <script>
-            const urlParams = new URLSearchParams(location.search);
+        
+
         </script>
     </body>
 </html>

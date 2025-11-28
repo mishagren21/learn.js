@@ -600,6 +600,47 @@
             }
 
             dialog.close();
+
+            
+
+            import {items} from "./data.js";
+           console.log(items);
+
+
+           const container = document.querySelector("#catalog");
+
+function renderItems(items) {
+  container.innerHTML = ""; 
+
+  items.forEach(item => {
+   
+    const tagsHTML = item.tags
+      ? item.tags.map(tag => `<span class="tag ${tag.value}">${tag.label}</span>`).join("")
+      : "";
+
+   
+    const card = `
+      <div class="item-card" data-id="${item.id}">
+        <img src="${item.img}" alt="${item.name}">
+        <h3>${item.name}</h3>
+
+        <div class="tags">
+          ${tagsHTML}
+        </div>
+
+        <p>Вага: ${item.weightKg}</p>
+        <p>Мотор: ${item.motor.voltage}, ${item.motor.diametr}</p>
+        <p class="price">${item.price} грн</p>
+      </div>
+    `;
+
+    container.innerHTML += card;
+  });
+}
+
+renderItems(items);
+
+
         </script>
     </body>
 </html>
