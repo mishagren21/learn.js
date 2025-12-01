@@ -158,3 +158,12 @@ function renderItems(items) {
 }
 
 renderItems(items);
+
+document.addEventListener("click", (e) => {
+  const card = e.target.closest(".item-card");
+  if (!card) return;
+
+  const id = card.dataset.id;
+  window.location.href = `/item.html?id=${id}`;
+});
+
