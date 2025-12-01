@@ -1,10 +1,9 @@
 {
   "name": "learn",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
-  "source": "src/index.html",
   "scripts": {
-    "start": "parcel",
+    "start": "parcel src/*.html",
     "build": "parcel build"
   },
   "repository": {
