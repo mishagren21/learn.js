@@ -177,7 +177,7 @@
 
   // Only insert newRequire.load when it is actually used.
   // The code in this file is linted against ES5, so dynamic import is not allowed.
-  // INSERT_LOAD_HERE
+  function $parcel$resolve(url) {  url = importMap[url] || url;  return import.meta.resolve(distDir + url);}newRequire.resolve = $parcel$resolve;
 
   Object.defineProperty(newRequire, 'root', {
     get: function () {
@@ -715,56 +715,12 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 
 },{}],"lhpGb":[function(require,module,exports,__globalThis) {
 var _dataJs = require("./data.js");
-function subtractPercent(amount, percent = 0) {
-    return amount - amount * percent / 100;
-}
-const generateCatalogTemplate = (items = [])=>{
-    let generatedHtml = "";
-    items.forEach((item)=>{
-        let tags = "";
-        item?.tags?.forEach((tag)=>tags += `<span class="tag ${tag.value}">${tag.label}</span>`);
-        generatedHtml += `
-           <a href="./item-detail.html?id=${item.id}" class="item" data-id=${item.id}>
-               <div class="image-container">
-                   <div class="tags-container">
-                     ${tags}
-                   </div>
-                   <img src=${item.img}>
-               </div>
-               <div class="text-container">
-                   <h1>${item.name}</h1>
-                   <div class="text">
-                       <div class="line">
-                           <p class="label">\u{412}\u{435}\u{441}</p>
-                           <p class="value">${item.weightKg}</p>
-                       </div>
-                       <div class="line">
-                           <p class="label">\u{414}\u{432}\u{438}\u{433}\u{430}\u{442}\u{435}\u{43B}\u{44C}</p>
-                           <p class="value">${item.motor.voltage}</p>
-                       </div>
-                       <div class="line">
-                           <p class="label">\u{414}\u{438}\u{430}\u{43C}. \u{41E}\u{431}\u{440}\u{430}\u{431}.</p>
-                           <p class="value">${item.motor.diametr}</p>
-                       </div>
-                   </div>
-                   <div class="price">
-                       <p>${item.price} \u{20BD}</p>
-                       ${item?.discount ? `<p class="discount">${subtractPercent(item.price, item.discount)} \u{20BD}</p>` : ""}
-                   </div>
-                   <button>\u{41A}\u{443}\u{43F}\u{438}\u{442}\u{44C}</button>
-                 </div>
-             </a>
-         `;
-    });
-    return generatedHtml;
-};
+var _utilsJs = require("./utils.js");
 const catalog = document.querySelector("#catalog");
 const dialog = document.querySelector("#myDialog");
 const filterSelect = document.querySelector("#filterSelect");
 const selectFilters = document.querySelector("#selected-filters");
-const searchParams = new URLSearchParams(window.location.search);
-console.log(searchParams.get("foo")); // a
-let generatedHtml = generateCatalogTemplate((0, _dataJs.items));
+const generatedHtml = (0, _utilsJs.generateCatalogTemplate)((0, _dataJs.items));
 let generatedTagsHtml = "";
 const allTags = [];
 (0, _dataJs.items).forEach((item)=>{
@@ -777,7 +733,7 @@ allTags.forEach((item)=>{
 });
 const clearFilter = ()=>{
     selectFilters.innerHTML = "";
-    const generatedHtml = generateCatalogTemplate((0, _dataJs.items));
+    const generatedHtml = (0, _utilsJs.generateCatalogTemplate)((0, _dataJs.items));
     const url = new URL(window.location);
     url.searchParams.delete("tag");
     window.history.pushState({}, "", url);
@@ -797,53 +753,32 @@ const selectFilter = ()=>{
                ${filterSelect.value}
                <button type="button" class="closeBtn" onclick='clearFilter()'>Close</button>
            </span>`;
-        const generatedHtml = generateCatalogTemplate(filteredItems);
+        const generatedHtml = (0, _utilsJs.generateCatalogTemplate)(filteredItems);
         catalog.innerHTML = generatedHtml;
     }
     dialog.close();
 };
-catalog.innerHTML = generatedHtml;
-filterSelect.innerHTML = generatedTagsHtml;
 function showFilterDialog() {
     dialog.showModal();
 }
 function closeFilterDialog() {
     dialog.close();
 }
-dialog.close();
-console.log((0, _dataJs.items));
-const container = document.querySelector("#catalog");
-function renderItems(items) {
-    container.innerHTML = "";
-    items.forEach((item)=>{
-        const tagsHTML = item.tags ? item.tags.map((tag)=>`<span class="tag ${tag.value}">${tag.label}</span>`).join("") : "";
-        const card = `
-              <a href="./item-detail.html?id=${item.id}" class="item-card" data-id=${item.id}>
-                <img src="../img/${item.img}" alt="${item.name}">
-                <h3>${item.name}</h3>
+// dialog.close();
+// render UI
+//
+catalog.innerHTML = generatedHtml;
+filterSelect.innerHTML = generatedTagsHtml; // render UI
+ //
 
-                <div class="tags">
-                ${tagsHTML}
-                </div>
-
-                <p>\u{412}\u{430}\u{433}\u{430}: ${item.weightKg}</p>
-                <p>\u{41C}\u{43E}\u{442}\u{43E}\u{440}: ${item.motor.voltage}, ${item.motor.diametr}</p>
-                <p class="price">${item.price} \u{433}\u{440}\u{43D}</p>
-              </a>
-              `;
-        container.innerHTML += card;
-    });
-}
-renderItems((0, _dataJs.items));
-
-},{"./data.js":"a4kWt"}],"a4kWt":[function(require,module,exports,__globalThis) {
+},{"./data.js":"a4kWt","./utils.js":"bMpAD"}],"a4kWt":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "items", ()=>items);
 const items = [
     {
         id: 1,
-        img: "automatic.png",
+        img: new URL(require("28ea0ce5232dc9f")).href,
         name: "S2-3 \u0410\u0432\u0442\u043E\u043C\u0430\u0442\u0438\u0447\u0435\u0441\u043A\u0438\u0439 \u043C\u0438\u043D\u0438",
         weightKg: "13 \u043A\u0433",
         motor: {
@@ -868,7 +803,7 @@ const items = [
     },
     {
         id: 2,
-        img: "./img/item-automatic.png",
+        img: new URL(require("3ec7309c4991cb1e")).href,
         name: "SG-006-1 \u0421\u0442\u0430\u043D\u043E\u043A \u0434\u043B\u044F \u0440\u0430\u0437\u0434\u0435\u043B\u043A\u0438 \u043A\u0430\u0431\u0435\u043B\u044F (\u0410\u0432\u0442\u043E\u043C\u0430\u0442\u0438\u0447\u0435\u0441\u043A\u0438\u0439)",
         weightKg: "13\u043A\u0433",
         motor: {
@@ -894,7 +829,7 @@ const items = [
     },
     {
         id: 3,
-        img: "./img/automatic-blue.png",
+        img: new URL(require("2bc6a03370598aba")).href,
         name: "SG-006-1 \u0421\u0442\u0430\u043D\u043E\u043A \u0434\u043B\u044F \u0440\u0430\u0437\u0434\u0435\u043B\u043A\u0438 \u043A\u0430\u0431\u0435\u043B\u044F",
         weightKg: "13\u043A\u0433",
         motor: {
@@ -1021,7 +956,7 @@ const items = [
     }
 ];
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"jnFvT":[function(require,module,exports,__globalThis) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","28ea0ce5232dc9f":"jHLHc","3ec7309c4991cb1e":"3XlF7","2bc6a03370598aba":"aWWDm"}],"jnFvT":[function(require,module,exports,__globalThis) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -1051,6 +986,63 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}]},["93v64","lhpGb"], "lhpGb", "parcelRequire2f36", {})
+},{}],"jHLHc":[function(require,module,exports,__globalThis) {
+module.exports = module.bundle.resolve("automatic.7f326f1e.png") + "?" + Date.now();
+
+},{}],"3XlF7":[function(require,module,exports,__globalThis) {
+module.exports = module.bundle.resolve("item-automatic.9d7820f8.png") + "?" + Date.now();
+
+},{}],"aWWDm":[function(require,module,exports,__globalThis) {
+module.exports = module.bundle.resolve("automatic-blue.cf1353dc.png") + "?" + Date.now();
+
+},{}],"bMpAD":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "generateCatalogTemplate", ()=>generateCatalogTemplate);
+function subtractPercent(amount, percent = 0) {
+    return amount - amount * percent / 100;
+}
+const generateCatalogTemplate = (items = [])=>{
+    let generatedHtml = "";
+    items.forEach((item)=>{
+        let tags = "";
+        item?.tags?.forEach((tag)=>tags += `<span class="tag ${tag.value}">${tag.label}</span>`);
+        generatedHtml += `
+           <a href="./item-detail.html?id=${item.id}" class="item" data-id=${item.id}>
+               <div class="image-container">
+                   <div class="tags-container">
+                     ${tags}
+                   </div>
+                   <img src=${item.img}>
+               </div>
+               <div class="text-container">
+                   <h1>${item.name}</h1>
+                   <div class="text">
+                       <div class="line">
+                           <p class="label">\u{412}\u{435}\u{441}</p>
+                           <p class="value">${item.weightKg}</p>
+                       </div>
+                       <div class="line">
+                           <p class="label">\u{414}\u{432}\u{438}\u{433}\u{430}\u{442}\u{435}\u{43B}\u{44C}</p>
+                           <p class="value">${item.motor.voltage}</p>
+                       </div>
+                       <div class="line">
+                           <p class="label">\u{414}\u{438}\u{430}\u{43C}. \u{41E}\u{431}\u{440}\u{430}\u{431}.</p>
+                           <p class="value">${item.motor.diametr}</p>
+                       </div>
+                   </div>
+                   <div class="price">
+                       <p>${item.price} \u{20BD}</p>
+                       ${item?.discount ? `<p class="discount">${subtractPercent(item.price, item.discount)} \u{20BD}</p>` : ""}
+                   </div>
+                   <button>\u{41A}\u{443}\u{43F}\u{438}\u{442}\u{44C}</button>
+                 </div>
+             </a>
+         `;
+    });
+    return generatedHtml;
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}]},["93v64","lhpGb"], "lhpGb", "parcelRequire2f36", {}, "./", "/")
 
 //# sourceMappingURL=learn.js.b828852a.js.map
