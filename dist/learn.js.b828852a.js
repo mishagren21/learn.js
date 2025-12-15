@@ -207,7 +207,7 @@
       });
     }
   }
-})({"93v64":[function(require,module,exports,__globalThis) {
+})({"jqpSg":[function(require,module,exports,__globalThis) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
@@ -956,7 +956,7 @@ const items = [
     }
 ];
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","28ea0ce5232dc9f":"jHLHc","3ec7309c4991cb1e":"3XlF7","2bc6a03370598aba":"aWWDm"}],"jnFvT":[function(require,module,exports,__globalThis) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"1P4xB","28ea0ce5232dc9f":"33BGP","3ec7309c4991cb1e":"3NQAl","2bc6a03370598aba":"fiIek"}],"1P4xB":[function(require,module,exports,__globalThis) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -986,13 +986,13 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}],"jHLHc":[function(require,module,exports,__globalThis) {
+},{}],"33BGP":[function(require,module,exports,__globalThis) {
 module.exports = module.bundle.resolve("automatic.7f326f1e.png") + "?" + Date.now();
 
-},{}],"3XlF7":[function(require,module,exports,__globalThis) {
+},{}],"3NQAl":[function(require,module,exports,__globalThis) {
 module.exports = module.bundle.resolve("item-automatic.9d7820f8.png") + "?" + Date.now();
 
-},{}],"aWWDm":[function(require,module,exports,__globalThis) {
+},{}],"fiIek":[function(require,module,exports,__globalThis) {
 module.exports = module.bundle.resolve("automatic-blue.cf1353dc.png") + "?" + Date.now();
 
 },{}],"bMpAD":[function(require,module,exports,__globalThis) {
@@ -1043,6 +1043,6 @@ const generateCatalogTemplate = (items = [])=>{
     return generatedHtml;
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}]},["93v64","lhpGb"], "lhpGb", "parcelRequire2f36", {}, "./", "/")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"1P4xB"}]},["jqpSg","lhpGb"], "lhpGb", "parcelRequire2f36", {}, "./", "/")
 
 //# sourceMappingURL=learn.js.b828852a.js.map

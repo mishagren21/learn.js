@@ -479,6 +479,10 @@ header .right-side .more a {
     padding-inline: 40px;
 }
 
+.section-2 .catalog-container {
+    flex-grow: 1;
+}
+
 .section-2 .search-buttons {
     display: flex;
 }
@@ -566,7 +570,7 @@ header .right-side .more a {
 .section-2 .catalog {
     gap: 10px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 }
 
 .section-2 #selected-filters:not(:empty) {
@@ -619,6 +623,7 @@ header .right-side .more a {
 
 .section-2 .item img {
     padding-bottom: 28px;
+    max-width: 100%;
 }
 
 .section-2 .item .line {
