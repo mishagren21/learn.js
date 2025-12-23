@@ -80,6 +80,7 @@ header .right-side .more a {
     display: flex;
     gap: 8px;
 }
+
 .search-buttons .logo-btn {
     width: 44px;
     height: 44px;
@@ -94,6 +95,7 @@ header .right-side .more a {
     transition: all 0.2s ease;
     outline: none;
 }
+
 .search-buttons .advice {
     background-color: #222;
     color: #fff;
@@ -105,6 +107,7 @@ header .right-side .more a {
     font-weight: 500;
     outline: none;
 }
+
 .section-1 {
     max-width: 1920px;
     margin-inline: auto;
@@ -327,6 +330,7 @@ header .right-side .more a {
 .section-1 .contact-text {
     flex: 1 1 45%;
 }
+
 .section-1 .contact-text h2 {
     font-size: 40px;
 }
@@ -334,6 +338,7 @@ header .right-side .more a {
 .section-1 .contact-text p {
     font-size: 16px;
 }
+
 .section-1 .contact-text h2 {
     font-size: 24px;
     margin-bottom: 15px;
@@ -454,9 +459,11 @@ header .right-side .more a {
 .footer .blogs-buttoms {
     margin-right: 24px;
 }
+
 .footer .blogs .blogs-buttoms button {
     cursor: pointer;
 }
+
 .footer .blogs p {
     color: rgba(117, 117, 117, 1);
 }
@@ -601,10 +608,13 @@ header .right-side .more a {
     position: relative;
     padding: 8px;
 }
-.section-2 .tags-container {
-}
+
 .section-2 .item .text-container {
     padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .section-2 .buttons-menu button {
@@ -619,10 +629,9 @@ header .right-side .more a {
 .section-2 .item {
     border-radius: 16px;
     background-color: rgb(244, 245, 248);
-      display: flex;
-  flex-direction: column;
-  height: 100%;
-  padding: 16px;
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
 }
 
 .section-2 .item img {
@@ -666,6 +675,7 @@ header .right-side .more a {
     color: aliceblue;
     width: 100%;
     cursor: pointer;
+
 }
 
 .section-2 .middel-containers {
@@ -939,6 +949,7 @@ header .right-side .more a {
 .catalog .tag.tag-red {
     background-color: rgb(210, 25, 36);
 }
+
 dialog {
     border: none;
     border-radius: 10px;
@@ -949,6 +960,7 @@ dialog {
     inset: 0;
     margin: auto;
 }
+
 dialog::backdrop {
     background: rgba(0, 0, 0, 0.5);
 }
