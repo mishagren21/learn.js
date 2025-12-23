@@ -475,6 +475,10 @@ header .right-side .contacts a, header .right-side .more a {
   padding-inline: 40px;
 }
 
+.section-2 .catalog-container {
+  flex-grow: 1;
+}
+
 .section-2 .search-buttons {
   display: flex;
 }
@@ -560,7 +564,7 @@ header .right-side .contacts a, header .right-side .more a {
 }
 
 .section-2 .catalog {
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 10px;
   display: grid;
 }
@@ -612,6 +616,7 @@ header .right-side .contacts a, header .right-side .more a {
 }
 
 .section-2 .item img {
+  max-width: 100%;
   padding-bottom: 28px;
 }
 

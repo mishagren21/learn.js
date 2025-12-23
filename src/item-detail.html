@@ -2,49 +2,92 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Item Details</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Golos+Text&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./item-detail.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Item Details</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Golos+Text&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./item-detail.css" />
 </head>
 
 <body>
-  <div class="card">
-    <div class="card-image">
-      <div class="badges">
-        <span class="badge discount">-10%</span>
-        <span class="badge blue">Броня</span>
-        <span class="badge green">Пресс</span>
-      </div>
-      <img src="img/item-automatic.png" alt="Станок">
+    <header>
+        <div class="max-content">
+            <div class="left-side">
+                <img src="./img/logo.png" />
+            </div>
+            <div class="right-side">
+                <div class="contacts">
+                    <a href="#">okoprom@gmail.com</a>
+                    <a href="#">+7 (800) 707-31-01</a>
+                </div>
+                <div class="more">
+                    <a href="#">Доставка и оплата</a>
+                    <a href="#">Гарантия</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="menu">
+        <ul class="links">
+            <li><button id="backButton"><img src="./img/arrow-right.png"></button></li>
+            <li><a href="#">Каталог</a></li>
+            <li><a href="#">Наше производство</a></li>
+            <li><a href="#">О компании</a></li>
+            <li><a href="#">Контакты</a></li>
+        </ul>
+        <div class="search-buttons">
+            <button class="logo-btn">
+                <img src="./img/search.png" alt="search" />
+            </button>
+            <button class="logo-btn">
+                <img src="./img/vector.png" alt="vector" />
+            </button>
+            <button class="advice">Запросить консультацию</button>
+        </div>
     </div>
-    <h2 class="card-title">
-      SG-006-1 Станок для разделки кабеля (Автоматический)
-    </h2>
-    <div class="card-info">
-      <div><span>Вес</span><span>13 кг</span></div>
-      <div><span>Двигатель</span><span>180 Вт</span></div>
-      <div><span>Диам. обраб.</span><span>от 1,5 до 25 мм</span></div>
+
+    <div class="item-detail">
+        <div class="img-card">
+            <p>Изображения</p>
+            <img src="./img/machine.png">
+        </div>
+        <div class="info-card">
+            <div class="badges">
+                <span class="discount">-10%</span>
+                <span class="armour">Броня</span>
+                <span class="press">Прес</span>
+            </div>
+            <h2 class="card-title">
+                SG-006-1 Станок для разделки кабеля (Автоматический)
+            </h2>
+            <p class="in-stock">В наличии: 3 шт.</p>
+            <div class="rules">
+                <div class="line">
+                    <p>Физ лица:</p>
+                    <p>	Могут оплатить онлайн картой или в рассрочку</p>
+                </div>
+                <div class="line">
+                    <p>Юр лица:</p>
+                    <p>Могут сгенерировать счет и договор прямо на сайте после оформления заказа и оплатить</p>
+                </div>
+            </div>
+            <div class="buttons">
+                <button class="add-basket">Добавить в коризну</button>
+                <button class="consulation">Консультация</button>
+            </div>
+            <button class="buy-now">Купить сейчас</button>
+        </div>
     </div>
-    <div class="card-price">
-      <span class="new-price">34 990 ₽</span>
-      <span class="old-price">24 450 ₽</span>
-    </div>
 
+    <main id="product-item" class="section-2"></main>
+    <script src="./js/item-detail.js" type="module"></script>
+    <script>
+  document.getElementById('backButton').addEventListener('click', function () {
+    window.location.href = 'index.html';
+  });
+</script>
 
-    <button class="buy-button">Купить</button>
-
-  </div>
-
-  <script>
-
-
-  </script>
-  <main id="product-item"></main>
-
-  <script src="./js/item-detail.js" type="module"></script>
 </body>
 
 </html>
