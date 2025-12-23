@@ -619,6 +619,10 @@ header .right-side .more a {
 .section-2 .item {
     border-radius: 16px;
     background-color: rgb(244, 245, 248);
+      display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 16px;
 }
 
 .section-2 .item img {
