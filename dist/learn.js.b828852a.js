@@ -799,7 +799,8 @@ const items = [
                 label: "Misha",
                 value: "tag-blue"
             }
-        ]
+        ],
+        inStock: 10
     },
     {
         id: 2,
@@ -840,7 +841,7 @@ const items = [
     },
     {
         id: 4,
-        img: "./img/item-automatic.png",
+        img: new URL(require("3ec7309c4991cb1e")).href,
         name: "SG-006-1 \u0421\u0442\u0430\u043D\u043E\u043A \u0434\u043B\u044F \u0440\u0430\u0437\u0434\u0435\u043B\u043A\u0438 \u043A\u0430\u0431\u0435\u043B\u044F (\u0410\u0432\u0442\u043E\u043C\u0430\u0442\u0438\u0447\u0435\u0441\u043A\u0438\u0439)",
         weightKg: "13\u043A\u0433",
         motor: {
@@ -866,7 +867,7 @@ const items = [
     },
     {
         id: 5,
-        img: "./img/automatic-blue.png",
+        img: new URL(require("2bc6a03370598aba")).href,
         name: "SG-006-1 \u0421\u0442\u0430\u043D\u043E\u043A \u0434\u043B\u044F \u0440\u0430\u0437\u0434\u0435\u043B\u043A\u0438 \u043A\u0430\u0431\u0435\u043B\u044F",
         weightKg: "13\u043A\u0433",
         motor: {
@@ -877,7 +878,7 @@ const items = [
     },
     {
         id: 6,
-        img: "./img/automatic.png",
+        img: new URL(require("28ea0ce5232dc9f")).href,
         name: "S2-3 \u0410\u0432\u0442\u043E\u043C\u0430\u0442\u0438\u0447\u0435\u0441\u043A\u0438\u0439 \u043C\u0438\u043D\u0438",
         weightKg: "13 \u043A\u0433",
         motor: {
@@ -898,7 +899,7 @@ const items = [
     },
     {
         id: 7,
-        img: "./img/automatic.png",
+        img: new URL(require("28ea0ce5232dc9f")).href,
         name: "S2-3 \u0410\u0432\u0442\u043E\u043C\u0430\u0442\u0438\u0447\u0435\u0441\u043A\u0438\u0439 \u043C\u0438\u043D\u0438",
         weightKg: "13 \u043A\u0433",
         motor: {
@@ -919,7 +920,7 @@ const items = [
     },
     {
         id: 8,
-        img: "./img/item-automatic.png",
+        img: new URL(require("3ec7309c4991cb1e")).href,
         name: "SG-006-1 \u0421\u0442\u0430\u043D\u043E\u043A \u0434\u043B\u044F \u0440\u0430\u0437\u0434\u0435\u043B\u043A\u0438 \u043A\u0430\u0431\u0435\u043B\u044F (\u0410\u0432\u0442\u043E\u043C\u0430\u0442\u0438\u0447\u0435\u0441\u043A\u0438\u0439)",
         weightKg: "13\u043A\u0433",
         motor: {
@@ -945,7 +946,7 @@ const items = [
     },
     {
         id: 9,
-        img: "./img/automatic-blue.png",
+        img: new URL(require("2bc6a03370598aba")).href,
         name: "SG-006-1 \u0421\u0442\u0430\u043D\u043E\u043A \u0434\u043B\u044F \u0440\u0430\u0437\u0434\u0435\u043B\u043A\u0438 \u043A\u0430\u0431\u0435\u043B\u044F",
         weightKg: "13\u043A\u0433",
         motor: {
@@ -956,7 +957,16 @@ const items = [
     }
 ];
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"1P4xB","28ea0ce5232dc9f":"33BGP","3ec7309c4991cb1e":"3NQAl","2bc6a03370598aba":"fiIek"}],"1P4xB":[function(require,module,exports,__globalThis) {
+},{"28ea0ce5232dc9f":"33BGP","3ec7309c4991cb1e":"3NQAl","2bc6a03370598aba":"fiIek","@parcel/transformer-js/src/esmodule-helpers.js":"1P4xB"}],"33BGP":[function(require,module,exports,__globalThis) {
+module.exports = module.bundle.resolve("automatic.7f326f1e.png") + "?" + Date.now();
+
+},{}],"3NQAl":[function(require,module,exports,__globalThis) {
+module.exports = module.bundle.resolve("item-automatic.9d7820f8.png") + "?" + Date.now();
+
+},{}],"fiIek":[function(require,module,exports,__globalThis) {
+module.exports = module.bundle.resolve("automatic-blue.cf1353dc.png") + "?" + Date.now();
+
+},{}],"1P4xB":[function(require,module,exports,__globalThis) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -986,19 +996,11 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}],"33BGP":[function(require,module,exports,__globalThis) {
-module.exports = module.bundle.resolve("automatic.7f326f1e.png") + "?" + Date.now();
-
-},{}],"3NQAl":[function(require,module,exports,__globalThis) {
-module.exports = module.bundle.resolve("item-automatic.9d7820f8.png") + "?" + Date.now();
-
-},{}],"fiIek":[function(require,module,exports,__globalThis) {
-module.exports = module.bundle.resolve("automatic-blue.cf1353dc.png") + "?" + Date.now();
-
 },{}],"bMpAD":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "generateCatalogTemplate", ()=>generateCatalogTemplate);
+parcelHelpers.export(exports, "generateSingleItemTemplate", ()=>generateSingleItemTemplate);
 function subtractPercent(amount, percent = 0) {
     return amount - amount * percent / 100;
 }
@@ -1040,6 +1042,44 @@ const generateCatalogTemplate = (items = [])=>{
              </a>
          `;
     });
+    return generatedHtml;
+};
+const generateSingleItemTemplate = (item)=>{
+    let generatedHtml = "";
+    let tags = "";
+    item?.tags?.forEach((tag)=>tags += `<span class="tag ${tag.value}">${tag.label}</span>`);
+    generatedHtml += `
+           <a href="./item-detail.html?id=${item.id}" class="item" data-id=${item.id}>
+               <div class="image-container">
+                   <div class="tags-container">
+                     ${tags}
+                   </div>
+                   <img src=${item.img}>
+               </div>
+               <div class="text-container">
+                   <h1>${item.name}</h1>
+                   <div class="text">
+                       <div class="line">
+                           <p class="label">\u{412}\u{435}\u{441}</p>
+                           <p class="value">${item.weightKg}</p>
+                       </div>
+                       <div class="line">
+                           <p class="label">\u{414}\u{432}\u{438}\u{433}\u{430}\u{442}\u{435}\u{43B}\u{44C}</p>
+                           <p class="value">${item.motor.voltage}</p>
+                       </div>
+                       <div class="line">
+                           <p class="label">\u{414}\u{438}\u{430}\u{43C}. \u{41E}\u{431}\u{440}\u{430}\u{431}.</p>
+                           <p class="value">${item.motor.diametr}</p>
+                       </div>
+                   </div>
+                   <div class="price">
+                       <p>${item.price} \u{20BD}</p>
+                       ${item?.discount ? `<p class="discount">${subtractPercent(item.price, item.discount)} \u{20BD}</p>` : ""}
+                   </div>
+                   <button>\u{41A}\u{443}\u{43F}\u{438}\u{442}\u{44C}</button>
+                 </div>
+             </a>
+         `;
     return generatedHtml;
 };
 

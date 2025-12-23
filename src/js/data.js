@@ -23,6 +23,7 @@ export const items = [
         value: "tag-blue",
       },
     ],
+    inStock: 10,
   },
   {
     id: 2,
@@ -63,7 +64,7 @@ export const items = [
   },
   {
     id: 4,
-    img: "./img/item-automatic.png",
+    img: new URL("../img/item-automatic.png", import.meta.url).href,
     name: "SG-006-1 Станок для разделки кабеля (Автоматический)",
     weightKg: "13кг",
     motor: {
@@ -89,7 +90,7 @@ export const items = [
   },
   {
     id: 5,
-    img: "./img/automatic-blue.png",
+    img: new URL("../img/automatic-blue.png", import.meta.url).href,
     name: "SG-006-1 Станок для разделки кабеля",
     weightKg: "13кг",
     motor: {
@@ -100,7 +101,7 @@ export const items = [
   },
   {
     id: 6,
-    img: "./img/automatic.png",
+    img: new URL("../img/automatic.png", import.meta.url).href,
     name: "S2-3 Автоматический мини",
     weightKg: "13 кг",
     motor: {
@@ -121,7 +122,7 @@ export const items = [
   },
   {
     id: 7,
-    img: "./img/automatic.png",
+    img: new URL("../img/automatic.png", import.meta.url).href,
     name: "S2-3 Автоматический мини",
     weightKg: "13 кг",
     motor: {
@@ -142,7 +143,7 @@ export const items = [
   },
   {
     id: 8,
-    img: "./img/item-automatic.png",
+    img: new URL("../img/item-automatic.png", import.meta.url).href,
     name: "SG-006-1 Станок для разделки кабеля (Автоматический)",
     weightKg: "13кг",
     motor: {
@@ -168,7 +169,7 @@ export const items = [
   },
   {
     id: 9,
-    img: "./img/automatic-blue.png",
+    img: new URL("../img/automatic-blue.png", import.meta.url).href,
     name: "SG-006-1 Станок для разделки кабеля",
     weightKg: "13кг",
     motor: {

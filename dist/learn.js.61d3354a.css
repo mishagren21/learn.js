@@ -599,7 +599,11 @@ header .right-side .contacts a, header .right-side .more a {
 }
 
 .section-2 .item .text-container {
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
   padding: 20px;
+  display: flex;
 }
 
 .section-2 .buttons-menu button {
@@ -613,6 +617,9 @@ header .right-side .contacts a, header .right-side .more a {
 .section-2 .item {
   background-color: #f4f5f8;
   border-radius: 16px;
+  flex-direction: column;
+  padding: 16px;
+  display: flex;
 }
 
 .section-2 .item img {
