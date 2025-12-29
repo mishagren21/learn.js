@@ -62,6 +62,7 @@ export const generateSingleItemTemplate = (item) => {
                </div>
                <div class="text-container">
                    <h1>${item.name}</h1>
+                   <p class="in-stock">${item.inStock}</p>
                    <div class="text">
                        <div class="line">
                            <p class="label">Вес</p>
@@ -75,15 +76,36 @@ export const generateSingleItemTemplate = (item) => {
                            <p class="label">Диам. Обраб.</p>
                            <p class="value">${item.motor.diametr}</p>
                        </div>
+                       <div class="line">
+                       <p class="label">Висота<p/>
+                       <p class="value">${item.motor.height}</p>
+                       </div>
                    </div>
-                   <div class="price">
-                       <p>${item.price} ₽</p>
-                       ${item?.discount ? `<p class="discount">${subtractPercent(item.price, item.discount)} ₽</p>` : ""}
-                   </div>
-                   <button>Купить</button>
+                 <div class="price">${item?.discount ? `
+        <p class="old-price">${item.price} ₽</p>
+        <p class="discount">${subtractPercent(item.price, item.discount)} ₽</p>` : `
+        <p class="current-price">${item.price} ₽</p>
+      `
+    }
+</div>
+                   <div class="btn-container">
+                   <button class="buy-btn">Купить</button>
+                   <button class="add-inbasket">Добавить в корзину</button>
+                 </div>
                  </div>
              </a>
+
+              
+  
+
          `;
 
   return generatedHtml;
 };
+
+
+
+
+
+
+ 

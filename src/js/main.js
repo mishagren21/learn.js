@@ -79,3 +79,4 @@ catalog.innerHTML = generatedHtml;
 filterSelect.innerHTML = generatedTagsHtml;
 // render UI
 //
+ 
