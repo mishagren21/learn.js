@@ -12,6 +12,14 @@
 </head>
 <body>
     
+<h1>Корзина</h1>
+    
+
+<div class="buttons-menu">
+<button class="buy">Купить</button>
+<button class="consulation">Запросить консультацию</button>
+</div>
+
 
 
 <script>
@@ -31,6 +39,7 @@
   price: '29990',
 }];
 
+const cart = JSON.parse(localStorage.getItem("cart")) ;
 let content = '';
 
 aa.forEach((items) => {
@@ -51,7 +60,29 @@ const table = `<table>
     <th>Price</th>
   </tr>${content}</table>`
   
+  localStorage.setItem("items","table")
+
+  function addToCart(item) {
+  let cart = JSON.parse(localStorage.getItem("cart")) ;
+  cart.push(item);
+  localStorage.setItem("cart", JSON.stringify(cart));
+}
+addToCart({
+  img: "./img/item.png",
+  name: "SG-006-1",
+  price: 39990
+});
+
+function clearCart() {
+  localStorage.removeItem("cart");
+  location.reload();
+}
+
+
+  
 </script>
+
+
 
 </body>
 </html>
