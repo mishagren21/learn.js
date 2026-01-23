@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корзина</title>
+       <link rel="stylesheet" href="./cart.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Golos+Text&display=swap"
+            rel="stylesheet"/>
+</head>
+<body>
+    
+
+
+<script>
+    const aa = [{
+  name: 'S2-3 Автоматический мини',
+  img: 'new URL("../img/automatic.png", import.meta.url).href',
+  price: '19990',
+},
+{
+  name: 'SG-006-1 Станок для разделки кабеля (Автоматический)',
+  img: 'new URL("../img/item-automatic.png", import.meta.url).href',
+  price: '39990'
+},
+{
+  name: 'SG-006-1 Станок для разделки кабеля',
+  img: 'new URL("../img/item-automatic.png", import.meta.url).href',
+  price: '29990',
+}];
+
+let content = '';
+
+aa.forEach((items) => {
+  content +=` <tr>
+    <td>${items.img}</td>
+    <td>${items.name}</td>
+    <td>${items.price}</td>
+  </tr>
+`});
+
+const table = `<table>
+  <table class="cart-table">
+   <tr class="class-header"> 
+  <tr>
+    <th>#</th>
+    <th>Img</th>
+    <th>Name</th>
+    <th>Price</th>
+  </tr>${content}</table>`
+  
+</script>
+
+</body>
+</html>

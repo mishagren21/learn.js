@@ -106,6 +106,3 @@ export const generateSingleItemTemplate = (item) => {
 
 
 
-
-
- 
