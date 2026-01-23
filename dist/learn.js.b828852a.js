@@ -715,6 +715,7 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 
 },{}],"lhpGb":[function(require,module,exports,__globalThis) {
 var _dataJs = require("./data.js");
+var _itemsStoreJs = require("./itemsStore.js");
 var _utilsJs = require("./utils.js");
 const catalog = document.querySelector("#catalog");
 const dialog = document.querySelector("#myDialog");
@@ -768,10 +769,19 @@ function closeFilterDialog() {
 // render UI
 //
 catalog.innerHTML = generatedHtml;
-filterSelect.innerHTML = generatedTagsHtml; // render UI
- //
+filterSelect.innerHTML = generatedTagsHtml;
+// render UI
+//
+document.addEventListener("click", (event)=>{
+    const button = event.target.closest("#addToCartBtn");
+    if (!button) return;
+    event.preventDefault();
+    event.stopPropagation();
+    const itemId = button.dataset.id;
+    (0, _itemsStoreJs.itemsStore).addItem(itemId);
+});
 
-},{"./data.js":"a4kWt","./utils.js":"bMpAD"}],"a4kWt":[function(require,module,exports,__globalThis) {
+},{"./data.js":"a4kWt","./utils.js":"bMpAD","./itemsStore.js":"1V5rP"}],"a4kWt":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "items", ()=>items);
@@ -780,10 +790,12 @@ const items = [
         id: 1,
         img: new URL(require("28ea0ce5232dc9f")).href,
         name: "S2-3 \u0410\u0432\u0442\u043E\u043C\u0430\u0442\u0438\u0447\u0435\u0441\u043A\u0438\u0439 \u043C\u0438\u043D\u0438",
+        inStock: "\u0412 \u043D\u0430\u043B\u0438\u0447\u0438\u0438: 7",
         weightKg: "13 \u043A\u0433",
         motor: {
             voltage: "180\u0432\u0442",
-            diametr: "\u043E\u04421,5\u0434\u043E 25\u043C\u043C"
+            diametr: "\u043E\u04421,5\u0434\u043E 25\u043C\u043C",
+            height: "630 \u043C\u043C"
         },
         price: 19990,
         tags: [
@@ -799,17 +811,18 @@ const items = [
                 label: "Misha",
                 value: "tag-blue"
             }
-        ],
-        inStock: 10
+        ]
     },
     {
         id: 2,
         img: new URL(require("3ec7309c4991cb1e")).href,
         name: "SG-006-1 \u0421\u0442\u0430\u043D\u043E\u043A \u0434\u043B\u044F \u0440\u0430\u0437\u0434\u0435\u043B\u043A\u0438 \u043A\u0430\u0431\u0435\u043B\u044F (\u0410\u0432\u0442\u043E\u043C\u0430\u0442\u0438\u0447\u0435\u0441\u043A\u0438\u0439)",
+        inStock: "\u0412 \u043D\u0430\u043B\u0438\u0447\u0438\u0438: 10",
         weightKg: "13\u043A\u0433",
         motor: {
             voltage: "180\u0432\u0442",
-            diametr: "\u043E\u04421,5\u0434\u043E 25\u043C\u043C"
+            diametr: "\u043E\u04421,5\u0434\u043E 25\u043C\u043C",
+            height: "900 \u043C\u043C"
         },
         price: 39990,
         discount: 10,
@@ -832,10 +845,12 @@ const items = [
         id: 3,
         img: new URL(require("2bc6a03370598aba")).href,
         name: "SG-006-1 \u0421\u0442\u0430\u043D\u043E\u043A \u0434\u043B\u044F \u0440\u0430\u0437\u0434\u0435\u043B\u043A\u0438 \u043A\u0430\u0431\u0435\u043B\u044F",
+        inStock: "\u0412 \u043D\u0430\u043B\u0438\u0447\u0438\u0438: 8",
         weightKg: "13\u043A\u0433",
         motor: {
             voltage: "180\u0432\u0442",
-            diametr: "\u043E\u04421,5\u0434\u043E 25\u043C\u043C"
+            diametr: "\u043E\u04421,5\u0434\u043E 25\u043C\u043C",
+            height: "750 \u043C\u043C"
         },
         price: 29990
     },
@@ -843,10 +858,12 @@ const items = [
         id: 4,
         img: new URL(require("3ec7309c4991cb1e")).href,
         name: "SG-006-1 \u0421\u0442\u0430\u043D\u043E\u043A \u0434\u043B\u044F \u0440\u0430\u0437\u0434\u0435\u043B\u043A\u0438 \u043A\u0430\u0431\u0435\u043B\u044F (\u0410\u0432\u0442\u043E\u043C\u0430\u0442\u0438\u0447\u0435\u0441\u043A\u0438\u0439)",
+        inStock: "\u0412 \u043D\u0430\u043B\u0438\u0447\u0438\u0438: 11",
         weightKg: "13\u043A\u0433",
         motor: {
             voltage: "180\u0432\u0442",
-            diametr: "\u043E\u04421,5\u0434\u043E 25\u043C\u043C"
+            diametr: "\u043E\u04421,5\u0434\u043E 25\u043C\u043C",
+            height: "600 \u043C\u043C"
         },
         price: 39990,
         discount: 10,
@@ -869,10 +886,12 @@ const items = [
         id: 5,
         img: new URL(require("2bc6a03370598aba")).href,
         name: "SG-006-1 \u0421\u0442\u0430\u043D\u043E\u043A \u0434\u043B\u044F \u0440\u0430\u0437\u0434\u0435\u043B\u043A\u0438 \u043A\u0430\u0431\u0435\u043B\u044F",
+        inStock: "\u0412 \u043D\u0430\u043B\u0438\u0447\u0438\u0438: 7",
         weightKg: "13\u043A\u0433",
         motor: {
             voltage: "180\u0432\u0442",
-            diametr: "\u043E\u04421,5\u0434\u043E 25\u043C\u043C"
+            diametr: "\u043E\u04421,5\u0434\u043E 25\u043C\u043C",
+            height: "900 \u043C\u043C"
         },
         price: 29990
     },
@@ -880,10 +899,12 @@ const items = [
         id: 6,
         img: new URL(require("28ea0ce5232dc9f")).href,
         name: "S2-3 \u0410\u0432\u0442\u043E\u043C\u0430\u0442\u0438\u0447\u0435\u0441\u043A\u0438\u0439 \u043C\u0438\u043D\u0438",
+        inStock: "\u0412 \u043D\u0430\u043B\u0438\u0447\u0438\u0438: 5",
         weightKg: "13 \u043A\u0433",
         motor: {
             voltage: "180\u0432\u0442",
-            diametr: "\u043E\u04421,5\u0434\u043E 25\u043C\u043C"
+            diametr: "\u043E\u04421,5\u0434\u043E 25\u043C\u043C",
+            height: "500 \u043C\u043C"
         },
         price: 19990,
         tags: [
@@ -901,10 +922,12 @@ const items = [
         id: 7,
         img: new URL(require("28ea0ce5232dc9f")).href,
         name: "S2-3 \u0410\u0432\u0442\u043E\u043C\u0430\u0442\u0438\u0447\u0435\u0441\u043A\u0438\u0439 \u043C\u0438\u043D\u0438",
+        inStock: "\u0412 \u043D\u0430\u043B\u0438\u0447\u0438\u0438: 13",
         weightKg: "13 \u043A\u0433",
         motor: {
             voltage: "180\u0432\u0442",
-            diametr: "\u043E\u04421,5\u0434\u043E 25\u043C\u043C"
+            diametr: "\u043E\u04421,5\u0434\u043E 25\u043C\u043C",
+            height: "900 \u043C\u043C"
         },
         price: 19990,
         tags: [
@@ -922,10 +945,12 @@ const items = [
         id: 8,
         img: new URL(require("3ec7309c4991cb1e")).href,
         name: "SG-006-1 \u0421\u0442\u0430\u043D\u043E\u043A \u0434\u043B\u044F \u0440\u0430\u0437\u0434\u0435\u043B\u043A\u0438 \u043A\u0430\u0431\u0435\u043B\u044F (\u0410\u0432\u0442\u043E\u043C\u0430\u0442\u0438\u0447\u0435\u0441\u043A\u0438\u0439)",
+        inStock: "\u0412 \u043D\u0430\u043B\u0438\u0447\u0438\u0438: 4",
         weightKg: "13\u043A\u0433",
         motor: {
             voltage: "180\u0432\u0442",
-            diametr: "\u043E\u04421,5\u0434\u043E 25\u043C\u043C"
+            diametr: "\u043E\u04421,5\u0434\u043E 25\u043C\u043C",
+            height: "1000 \u043C\u043C"
         },
         price: 39990,
         discount: 10,
@@ -948,10 +973,12 @@ const items = [
         id: 9,
         img: new URL(require("2bc6a03370598aba")).href,
         name: "SG-006-1 \u0421\u0442\u0430\u043D\u043E\u043A \u0434\u043B\u044F \u0440\u0430\u0437\u0434\u0435\u043B\u043A\u0438 \u043A\u0430\u0431\u0435\u043B\u044F",
+        inStock: "\u0412 \u043D\u0430\u043B\u0438\u0447\u0438\u0438: 9",
         weightKg: "13\u043A\u0433",
         motor: {
             voltage: "180\u0432\u0442",
-            diametr: "\u043E\u04421,5\u0434\u043E 25\u043C\u043C"
+            diametr: "\u043E\u04421,5\u0434\u043E 25\u043C\u043C",
+            height: "900 \u043C\u043C"
         },
         price: 29990
     }
@@ -1037,7 +1064,7 @@ const generateCatalogTemplate = (items = [])=>{
                        <p>${item.price} \u{20BD}</p>
                        ${item?.discount ? `<p class="discount">${subtractPercent(item.price, item.discount)} \u{20BD}</p>` : ""}
                    </div>
-                   <button>\u{41A}\u{443}\u{43F}\u{438}\u{442}\u{44C}</button>
+                   <button type="button" data-id="${item.id}" id="addToCartBtn">\u{41A}\u{443}\u{43F}\u{438}\u{442}\u{44C}</button>
                  </div>
              </a>
          `;
@@ -1058,6 +1085,7 @@ const generateSingleItemTemplate = (item)=>{
                </div>
                <div class="text-container">
                    <h1>${item.name}</h1>
+                   <p class="in-stock">${item.inStock}</p>
                    <div class="text">
                        <div class="line">
                            <p class="label">\u{412}\u{435}\u{441}</p>
@@ -1071,17 +1099,66 @@ const generateSingleItemTemplate = (item)=>{
                            <p class="label">\u{414}\u{438}\u{430}\u{43C}. \u{41E}\u{431}\u{440}\u{430}\u{431}.</p>
                            <p class="value">${item.motor.diametr}</p>
                        </div>
+                       <div class="line">
+                       <p class="label">\u{412}\u{438}\u{441}\u{43E}\u{442}\u{430}<p/>
+                       <p class="value">${item.motor.height}</p>
+                       </div>
                    </div>
-                   <div class="price">
-                       <p>${item.price} \u{20BD}</p>
-                       ${item?.discount ? `<p class="discount">${subtractPercent(item.price, item.discount)} \u{20BD}</p>` : ""}
-                   </div>
-                   <button>\u{41A}\u{443}\u{43F}\u{438}\u{442}\u{44C}</button>
+                 <div class="price">${item?.discount ? `
+                          <p class="old-price">${item.price} \u{20BD}</p>
+                          <p class="discount">${subtractPercent(item.price, item.discount)} \u{20BD}</p>` : `
+                          <p class="current-price">${item.price} \u{20BD}</p>
+                        `}
+                  </div>
+                   <div class="btn-container">
+                   <button class="buy-btn">\u{41A}\u{443}\u{43F}\u{438}\u{442}\u{44C}</button>
+                   <button class="add-inbasket" data-id="${item.id}" id="addToCartBtn">\u{414}\u{43E}\u{431}\u{430}\u{432}\u{438}\u{442}\u{44C} \u{432} \u{43A}\u{43E}\u{440}\u{437}\u{438}\u{43D}\u{443}</button>
+                 </div>
                  </div>
              </a>
          `;
     return generatedHtml;
 };
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"1P4xB"}],"1V5rP":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "ItemsStore", ()=>ItemsStore);
+parcelHelpers.export(exports, "itemsStore", ()=>itemsStore);
+class ItemsStore {
+    constructor(){
+        this.items = window.localStorage.getItem("items") ? JSON.parse(window.localStorage.getItem("items")) : [];
+    }
+    saveItemsToLocalStorage() {
+        window.localStorage.setItem("items", JSON.stringify(this.items));
+    }
+    addItem(item) {
+        this.items.push(item);
+        this.saveItemsToLocalStorage();
+    }
+    removeItem(id) {
+        this.items = this.items.filter((item)=>item !== id);
+        this.saveItemsToLocalStorage();
+    }
+    updateItem(id, updatedItem) {
+        const index = this.items.findIndex((item)=>item === id);
+        if (index !== -1) {
+            this.items[index] = updatedItem;
+            this.saveItemsToLocalStorage();
+        }
+    }
+    getItems() {
+        return this.items;
+    }
+    getItemById(id) {
+        return this.items.find((item)=>item === id);
+    }
+    clearItems() {
+        this.items = [];
+        this.saveItemsToLocalStorage();
+    }
+}
+const itemsStore = new ItemsStore();
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"1P4xB"}]},["jqpSg","lhpGb"], "lhpGb", "parcelRequire2f36", {}, "./", "/")
 

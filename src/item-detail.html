@@ -1,64 +1,64 @@
 <!doctype html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Item Details</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Golos+Text&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="./item-detail.css" />
+    </head>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Item Details</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Golos+Text&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="./item-detail.css" />
-</head>
-
-<body>
-    <header>
-        <div class="max-content">
-            <div class="left-side">
-                <img src="./img/logo.png" />
+    <body>
+        <header>
+            <div class="max-content">
+                <div class="left-side">
+                    <img src="./img/logo.png" />
+                </div>
+                <div class="right-side">
+                    <div class="contacts">
+                        <a href="#">okoprom@gmail.com</a>
+                        <a href="#">+7 (800) 707-31-01</a>
+                    </div>
+                    <div class="more">
+                        <a href="#">Доставка и оплата</a>
+                        <a href="#">Гарантия</a>
+                    </div>
+                </div>
             </div>
-            <div class="right-side">
-                <div class="contacts">
-                    <a href="#">okoprom@gmail.com</a>
-                    <a href="#">+7 (800) 707-31-01</a>
-                </div>
-                <div class="more">
-                    <a href="#">Доставка и оплата</a>
-                    <a href="#">Гарантия</a>
-                </div>
+        </header>
+        <div class="menu">
+            <ul class="links">
+                <li>
+                    <a href="./index.html">
+                        <img src="./img/arrow-right.png" />
+                    </a>
+                </li>
+                <li><a href="#">Каталог</a></li>
+                <li><a href="#">Наше производство</a></li>
+                <li><a href="#">О компании</a></li>
+                <li><a href="#">Контакты</a></li>
+            </ul>
+            <div class="search-buttons">
+                <button class="logo-btn">
+                    <img src="./img/search.png" alt="search" />
+                </button>
+                <button class="logo-btn">
+                    <a href="cart.html"
+                        ><img src="./img/vector.png" alt="vector"
+                    /></a>
+                </button>
+                <button class="advice">Запросить консультацию</button>
             </div>
         </div>
-    </header>
-    <div class="menu">
-        <ul class="links">
-            <li>
-                <a href="./index.html">
-                    <img src="./img/arrow-right.png" />
-                </a>
-            </li>
-            <li><a href="#">Каталог</a></li>
-            <li><a href="#">Наше производство</a></li>
-            <li><a href="#">О компании</a></li>
-            <li><a href="#">Контакты</a></li>
-        </ul>
-        <div class="search-buttons">
-            <button class="logo-btn">
-                <img src="./img/search.png" alt="search" />
-            </button>
-            <button class="logo-btn">
-               <a href="cart.html"><img src="./img/vector.png" alt="vector"/></a>
 
+        <main id="product-item" class="section-2"></main>
 
-            </button>
-            <button class="advice">Запросить консультацию</button>
-        </div>
-    </div>
-
-
-    <main id="product-item" class="section-2"></main>
-    <script src="./js/item-detail.js" type="module"></script>
- 
-   <div class="contact-form">
-    <div class="max-content">
+        <div class="contact-form">
+            <div class="max-content">
                 <div class="contact-text">
                     <h2>
                         Будем рады ответить<br />на все интересующие<br />
@@ -81,11 +81,7 @@
                 </form>
             </div>
         </div>
- </div>
 
-
-    
-
-</body>
-
+        <script src="./js/item-detail.js" type="module"></script>
+    </body>
 </html>

@@ -1,88 +1,62 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Корзина</title>
-       <link rel="stylesheet" href="./cart.css" />
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Корзина</title>
+        <link rel="stylesheet" href="./cart.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
             href="https://fonts.googleapis.com/css2?family=Golos+Text&display=swap"
-            rel="stylesheet"/>
-</head>
-<body>
-    
-<h1>Корзина</h1>
-    
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <h1>Корзина</h1>
 
-<div class="buttons-menu">
-<button class="buy">Купить</button>
-<button class="consulation">Запросить консультацию</button>
-</div>
+        <div class="buttons-menu">
+            <button class="buy">Купить</button>
+            <button class="consulation">Запросить консультацию</button>
+        </div>
 
+        <div class="cart-items" id="cart-items"></div>
 
+        <script type="module">
+            import { itemsStore } from "./js/itemsStore.js";
+            import { items } from "./js/data.js";
 
-<script>
-    const aa = [{
-  name: 'S2-3 Автоматический мини',
-  img: 'new URL("../img/automatic.png", import.meta.url).href',
-  price: '19990',
-},
-{
-  name: 'SG-006-1 Станок для разделки кабеля (Автоматический)',
-  img: 'new URL("../img/item-automatic.png", import.meta.url).href',
-  price: '39990'
-},
-{
-  name: 'SG-006-1 Станок для разделки кабеля',
-  img: 'new URL("../img/item-automatic.png", import.meta.url).href',
-  price: '29990',
-}];
+            const itemsFromStore = itemsStore.getItems();
 
-const cart = JSON.parse(localStorage.getItem("cart")) ;
-let content = '';
+            const itemForRender = items.filter((item) =>
+                itemsFromStore.find(
+                    (itemFromStore) => Number(itemFromStore) === item.id,
+                ),
+            );
+            let content = "";
 
-aa.forEach((items) => {
-  content +=` <tr>
-    <td>${items.img}</td>
-    <td>${items.name}</td>
-    <td>${items.price}</td>
-  </tr>
-`});
+            itemForRender.forEach((items, index) => {
+                content += `<tr>
+                                <td>${index + 1}</td>
+                                <td>${items.img}</td>
+                                <td>${items.name}</td>
+                                <td>${items.price}</td>
+                              </tr>
+                            `;
+            });
 
-const table = `<table>
-  <table class="cart-table">
-   <tr class="class-header"> 
-  <tr>
-    <th>#</th>
-    <th>Img</th>
-    <th>Name</th>
-    <th>Price</th>
-  </tr>${content}</table>`
-  
-  localStorage.setItem("items","table")
+            const table = `<table>
+                              <table class="cart-table">
+                              <tr class="class-header">
+                              <tr>
+                                <th>#</th>
+                                <th>Img</th>
+                                <th>Name</th>
+                                <th>Price</th>
+                              </tr>${content}
+                            </table>`;
 
-  function addToCart(item) {
-  let cart = JSON.parse(localStorage.getItem("cart")) ;
-  cart.push(item);
-  localStorage.setItem("cart", JSON.stringify(cart));
-}
-addToCart({
-  img: "./img/item.png",
-  name: "SG-006-1",
-  price: 39990
-});
-
-function clearCart() {
-  localStorage.removeItem("cart");
-  location.reload();
-}
-
-
-  
-</script>
-
-
-
-</body>
+            const cartItems = document.getElementById("cart-items");
+            cartItems.innerHTML = table;
+        </script>
+    </body>
 </html>

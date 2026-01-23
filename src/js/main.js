@@ -1,4 +1,5 @@
 import { items } from "./data.js";
+import { itemsStore } from "./itemsStore.js";
 import { generateCatalogTemplate } from "./utils.js";
 
 const catalog = document.querySelector("#catalog");
@@ -79,4 +80,15 @@ catalog.innerHTML = generatedHtml;
 filterSelect.innerHTML = generatedTagsHtml;
 // render UI
 //
- 
+
+document.addEventListener("click", (event) => {
+  const button = event.target.closest("#addToCartBtn");
+  if (!button) return;
+
+  event.preventDefault();
+  event.stopPropagation();
+
+  const itemId = button.dataset.id;
+
+  itemsStore.addItem(itemId);
+});

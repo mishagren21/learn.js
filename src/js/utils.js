@@ -37,7 +37,7 @@ export const generateCatalogTemplate = (items = []) => {
                        <p>${item.price} ₽</p>
                        ${item?.discount ? `<p class="discount">${subtractPercent(item.price, item.discount)} ₽</p>` : ""}
                    </div>
-                   <button>Купить</button>
+                   <button type="button" data-id="${item.id}" id="addToCartBtn">Купить</button>
                  </div>
              </a>
          `;
@@ -81,28 +81,23 @@ export const generateSingleItemTemplate = (item) => {
                        <p class="value">${item.motor.height}</p>
                        </div>
                    </div>
-                 <div class="price">${item?.discount ? `
-        <p class="old-price">${item.price} ₽</p>
-        <p class="discount">${subtractPercent(item.price, item.discount)} ₽</p>` : `
-        <p class="current-price">${item.price} ₽</p>
-      `
-    }
-</div>
+                 <div class="price">${
+                   item?.discount
+                     ? `
+                          <p class="old-price">${item.price} ₽</p>
+                          <p class="discount">${subtractPercent(item.price, item.discount)} ₽</p>`
+                     : `
+                          <p class="current-price">${item.price} ₽</p>
+                        `
+                 }
+                  </div>
                    <div class="btn-container">
                    <button class="buy-btn">Купить</button>
-                   <button class="add-inbasket">Добавить в корзину</button>
+                   <button class="add-inbasket" data-id="${item.id}" id="addToCartBtn">Добавить в корзину</button>
                  </div>
                  </div>
              </a>
-
-              
-  
-
          `;
 
   return generatedHtml;
 };
-
-
-
-
