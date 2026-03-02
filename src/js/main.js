@@ -1,3 +1,4 @@
+import { renderCartCount } from "./utils.js";
 import { items } from "./data.js";
 import { itemsStore } from "./itemsStore.js";
 import { generateCatalogTemplate } from "./utils.js";
@@ -91,4 +92,6 @@ document.addEventListener("click", (event) => {
   const itemId = button.dataset.id;
 
   itemsStore.addItem(itemId);
+
+  renderCartCount(itemsStore);
 });

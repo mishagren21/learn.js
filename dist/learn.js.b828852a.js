@@ -714,9 +714,9 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 }
 
 },{}],"lhpGb":[function(require,module,exports,__globalThis) {
+var _utilsJs = require("./utils.js");
 var _dataJs = require("./data.js");
 var _itemsStoreJs = require("./itemsStore.js");
-var _utilsJs = require("./utils.js");
 const catalog = document.querySelector("#catalog");
 const dialog = document.querySelector("#myDialog");
 const filterSelect = document.querySelector("#filterSelect");
@@ -779,6 +779,7 @@ document.addEventListener("click", (event)=>{
     event.stopPropagation();
     const itemId = button.dataset.id;
     (0, _itemsStoreJs.itemsStore).addItem(itemId);
+    (0, _utilsJs.renderCartCount)((0, _itemsStoreJs.itemsStore));
 });
 
 },{"./data.js":"a4kWt","./utils.js":"bMpAD","./itemsStore.js":"1V5rP"}],"a4kWt":[function(require,module,exports,__globalThis) {
@@ -1028,6 +1029,7 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "generateCatalogTemplate", ()=>generateCatalogTemplate);
 parcelHelpers.export(exports, "generateSingleItemTemplate", ()=>generateSingleItemTemplate);
+parcelHelpers.export(exports, "renderCartCount", ()=>renderCartCount);
 function subtractPercent(amount, percent = 0) {
     return amount - amount * percent / 100;
 }
@@ -1119,6 +1121,11 @@ const generateSingleItemTemplate = (item)=>{
          `;
     return generatedHtml;
 };
+function renderCartCount(store) {
+    const counter = document.querySelector("#cart-count");
+    if (counter) return counter.textContent = store.getItems().length;
+    console.log("cart count not found");
+}
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"1P4xB"}],"1V5rP":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -1127,34 +1134,34 @@ parcelHelpers.export(exports, "ItemsStore", ()=>ItemsStore);
 parcelHelpers.export(exports, "itemsStore", ()=>itemsStore);
 class ItemsStore {
     constructor(){
-        this.items = window.localStorage.getItem("items") ? JSON.parse(window.localStorage.getItem("items")) : [];
+        this.items = window.localStorage.getItem("items") ? new Set(JSON.parse(window.localStorage.getItem("items"))) : new Set([]);
     }
     saveItemsToLocalStorage() {
-        window.localStorage.setItem("items", JSON.stringify(this.items));
+        window.localStorage.setItem("items", JSON.stringify([
+            ...this.items
+        ]));
     }
     addItem(item) {
-        this.items.push(item);
+        this.items.add(item);
         this.saveItemsToLocalStorage();
     }
     removeItem(id) {
-        this.items = this.items.filter((item)=>item !== id);
+        this.items.delete(id);
         this.saveItemsToLocalStorage();
     }
     updateItem(id, updatedItem) {
-        const index = this.items.findIndex((item)=>item === id);
-        if (index !== -1) {
-            this.items[index] = updatedItem;
-            this.saveItemsToLocalStorage();
-        }
+        this.items.delete(id);
+        this.items.add(updatedItem);
+        this.saveItemsToLocalStorage();
     }
     getItems() {
-        return this.items;
+        return Array.from(this.items);
     }
     getItemById(id) {
         return this.items.find((item)=>item === id);
     }
     clearItems() {
-        this.items = [];
+        this.items = new Set([]);
         this.saveItemsToLocalStorage();
     }
 }

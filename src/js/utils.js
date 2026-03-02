@@ -102,13 +102,11 @@ export const generateSingleItemTemplate = (item) => {
   return generatedHtml;
 };
 
+export function renderCartCount(store) {
+  const counter = document.querySelector("#cart-count");
+  if (counter) {
+    return (counter.textContent = store.getItems().length);
+  }
 
-
-
-
-
-
-
-
-
-
+  console.log("cart count not found");
+}

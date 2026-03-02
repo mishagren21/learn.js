@@ -12,11 +12,11 @@
         />
     </head>
     <body>
-       <div class="title"> 
-        <h1>Корзина</h1>
-        <img src="./img/vector.png">
-       </div>
-        
+        <div class="title">
+            <h1>Корзина</h1>
+            <img src="./img/vector.png" />
+        </div>
+
         <div class="cart-items" id="cart-items"></div>
 
         <div class="buttons-menu">
@@ -24,43 +24,6 @@
             <button class="consulation">Запросить консультацию</button>
         </div>
 
-
-        <script type="module">
-            import { itemsStore } from "./js/itemsStore.js";
-            import { items } from "./js/data.js";
-
-            const itemsFromStore = itemsStore.getItems();
-
-            const itemForRender = items.filter((item) =>
-                itemsFromStore.find(
-                    (itemFromStore) => Number(itemFromStore) === item.id,
-                ),
-            );
-            let content = "";
-
-            itemForRender.forEach((items, index) => {
-                content += `<tr>
-                                <td>${index + 1}</td>
-                                <td> <img src="${items.img}" alt="${items.name}" class="cart-img"></td>
-                                <td>${items.name}</td>
-                                <td>${items.price}</td>
-                              </tr>
-                            `;
-            });
-
-            const table = `<table>
-                              <table class="cart-table">
-                              <tr class="class-header">
-                              <tr>
-                                <th>#</th>
-                                <th>Img</th>
-                                <th>Name</th>
-                                <th>Price</th>
-                              </tr>${content}
-                            </table>`;
-
-            const cartItems = document.getElementById("cart-items");
-            cartItems.innerHTML = table;
-        </script>
+        <script type="module" src="./js/cartUI.js"></script>
     </body>
 </html>

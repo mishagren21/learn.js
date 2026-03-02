@@ -1,37 +1,35 @@
 export class ItemsStore {
   constructor() {
     this.items = window.localStorage.getItem("items")
-      ? JSON.parse(window.localStorage.getItem("items"))
-      : [];
+      ? new Set(JSON.parse(window.localStorage.getItem("items")))
+      : new Set([]);
   }
 
   saveItemsToLocalStorage() {
-    window.localStorage.setItem("items", JSON.stringify(this.items));
+    window.localStorage.setItem("items", JSON.stringify([...this.items]));
   }
 
   addItem(item) {
-    this.items.push(item);
+    this.items.add(item);
 
     this.saveItemsToLocalStorage();
   }
 
   removeItem(id) {
-    this.items = this.items.filter((item) => item !== id);
+    this.items.delete(id);
 
     this.saveItemsToLocalStorage();
   }
 
   updateItem(id, updatedItem) {
-    const index = this.items.findIndex((item) => item === id);
-    if (index !== -1) {
-      this.items[index] = updatedItem;
+    this.items.delete(id);
+    this.items.add(updatedItem);
 
-      this.saveItemsToLocalStorage();
-    }
+    this.saveItemsToLocalStorage();
   }
 
   getItems() {
-    return this.items;
+    return Array.from(this.items);
   }
 
   getItemById(id) {
@@ -39,7 +37,7 @@ export class ItemsStore {
   }
 
   clearItems() {
-    this.items = [];
+    this.items = new Set([]);
 
     this.saveItemsToLocalStorage();
   }
