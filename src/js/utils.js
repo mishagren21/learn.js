@@ -101,3 +101,14 @@ export const generateSingleItemTemplate = (item) => {
 
   return generatedHtml;
 };
+
+
+
+
+
+
+
+
+
+
+
