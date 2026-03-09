@@ -37,13 +37,22 @@ export const generateCatalogTemplate = (items = []) => {
                        <p>${item.price} ₽</p>
                        ${item?.discount ? `<p class="discount">${subtractPercent(item.price, item.discount)} ₽</p>` : ""}
                    </div>
-                   <button type="button" data-id="${item.id}" id="addToCartBtn">Купить</button>
+                   <button type="button" data-id="${item.id}" id="addToCartBtn">Добавить в корзину </button>
                  </div>
-             </a>
+             </a> 
          `;
   });
   return generatedHtml;
 };
+document.querySelectorAll(".add-to-cart-btn").forEach((button) => {
+  button.addEventListener("click", function (e) {
+    e.preventDefault(); 
+    const id = this.dataset.id;
+    console.log("Added:", id);
+    this.disabled = true;
+    
+  });
+});
 
 export const generateSingleItemTemplate = (item) => {
   let generatedHtml = "";
