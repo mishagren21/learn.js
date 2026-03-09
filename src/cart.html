@@ -11,8 +11,8 @@
             rel="stylesheet"
         />
     </head>
-    <body>
-         <header>
+    <body id="cart-page">
+        <header>
             <div class="max-content">
                 <div class="left-side">
                     <img src="./img/logo.png" />
@@ -29,7 +29,7 @@
                 </div>
             </div>
         </header>
-         <div class="menu">
+        <div class="menu">
             <ul class="links">
                 <li>
                     <a href="./index.html">
@@ -58,17 +58,13 @@
             <h1>Корзина</h1>
             <img src="./img/vector.png" />
         </div>
-        
 
         <div class="cart-items" id="cart-items"></div>
 
+        <div class="cart-container">
+            <button class="buy-btn" data-id="buy" id="buy-btn">Купить</button>
+        </div>
 
-           <div class="cart-container">
-    <button class="buy-btn">Купить</button>
-</div>
-
-        <script type="module" src="./js/cartUI.js">
-            
-        </script>
+        <script type="module" src="./js/cartUI.js"></script>
     </body>
 </html>

@@ -1,45 +1,46 @@
 export class ItemsStore {
   constructor() {
     this.items = window.localStorage.getItem("items")
-      ? new Set(JSON.parse(window.localStorage.getItem("items")))
-      : new Set([]);
+      ? new Map(
+          JSON.parse(window.localStorage.getItem("items")).map(([id, item]) => [
+            Number(id),
+            item,
+          ]),
+        )
+      : new Map([]);
   }
 
-  saveItemsToLocalStorage() {
+  save() {
     window.localStorage.setItem("items", JSON.stringify([...this.items]));
   }
 
   addItem(item) {
-    this.items.add(item);
+    this.items.set(item.id, item);
 
-    this.saveItemsToLocalStorage();
+    this.save();
   }
 
   removeItem(id) {
     this.items.delete(id);
 
-    this.saveItemsToLocalStorage();
+    this.save();
   }
 
   updateItem(id, updatedItem) {
-    this.items.delete(id);
-    this.items.add(updatedItem);
+    const itemId = Number(id);
+    this.items.set(itemId, { ...updatedItem, id: itemId });
 
-    this.saveItemsToLocalStorage();
+    this.save();
   }
 
   getItems() {
-    return Array.from(this.items);
-  }
-
-  getItemById(id) {
-    return this.items.find((item) => item === id);
+    return Array.from(this.items.values());
   }
 
   clearItems() {
-    this.items = new Set([]);
+    this.items = new Map([]);
 
-    this.saveItemsToLocalStorage();
+    this.save();
   }
 }
 

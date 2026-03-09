@@ -39,20 +39,11 @@ export const generateCatalogTemplate = (items = []) => {
                    </div>
                    <button type="button" data-id="${item.id}" id="addToCartBtn">Добавить в корзину </button>
                  </div>
-             </a> 
+             </a>
          `;
   });
   return generatedHtml;
 };
-document.querySelectorAll(".add-to-cart-btn").forEach((button) => {
-  button.addEventListener("click", function (e) {
-    e.preventDefault(); 
-    const id = this.dataset.id;
-    console.log("Added:", id);
-    this.disabled = true;
-    
-  });
-});
 
 export const generateSingleItemTemplate = (item) => {
   let generatedHtml = "";
@@ -119,3 +110,12 @@ export function renderCartCount(store) {
 
   console.log("cart count not found");
 }
+
+document.querySelectorAll(".add-to-cart-btn").forEach((button) => {
+  button.addEventListener("click", function (e) {
+    e.preventDefault();
+    const id = this.dataset.id;
+    console.log("Added:", id);
+    this.disabled = true;
+  });
+});

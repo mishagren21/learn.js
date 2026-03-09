@@ -19,5 +19,5 @@ document.addEventListener("click", (event) => {
 
   const itemId = button.dataset.id;
 
-  itemsStore.addItem(itemId);
+  itemsStore.addItem({ id: Number(itemId), quantity: 1 });
 });

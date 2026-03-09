@@ -99,6 +99,21 @@ header .right-side .contacts a, header .right-side .more a {
   font-weight: 500;
 }
 
+.search-buttons span {
+  color: #fff;
+  background: #ff3b3b;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  text-decoration: none;
+  display: flex;
+  box-shadow: 0 2px 6px #0003;
+}
+
 .section-1 {
   box-sizing: content-box;
   max-width: 1920px;
@@ -569,6 +584,10 @@ header .right-side .contacts a, header .right-side .more a {
   display: grid;
 }
 
+.section-2 .catalog a {
+  text-decoration: none;
+}
+
 .section-2 #selected-filters:not(:empty) {
   margin-bottom: 10px;
 }
@@ -599,6 +618,7 @@ header .right-side .contacts a, header .right-side .more a {
 }
 
 .section-2 .item .text-container {
+  color: #000;
   flex-direction: column;
   flex-grow: 1;
   justify-content: space-between;

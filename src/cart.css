@@ -8,21 +8,20 @@
     font-style: normal;
 }
 .title {
-  display: flex;
-  gap: 6px;
-  justify-content: center;
+    display: flex;
+    gap: 6px;
+    justify-content: center;
 }
 .title img {
-  object-fit: contain;
-  border-radius: 8px;
-  padding: 8px;
+    object-fit: contain;
+    border-radius: 8px;
+    padding: 8px;
 }
 h1 {
     font-size: 25px;
     text-align: center;
     margin-bottom: 40px;
     margin-top: 40px;
-    
 }
 header {
     background: rgb(244, 245, 248);
@@ -63,166 +62,158 @@ header .right-side .more a {
     font-size: 14px;
 }
 .menu {
-  top: 0;
-  z-index: 1;
-  display: flex;
-  position: sticky;
-  padding-block: 30px;
-  align-items: center;
-  padding-inline: 40px;
-  background-color: #fff;
-  justify-content: space-between;
-  max-width: 1920px;
-  margin: auto;
-  margin-bottom: 40px;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    position: sticky;
+    padding-block: 30px;
+    align-items: center;
+    padding-inline: 40px;
+    background-color: #fff;
+    justify-content: space-between;
+    max-width: 1920px;
+    margin: auto;
+    margin-bottom: 40px;
 }
 
 .menu button {
-  padding: 10px 20px;
-  background-color: rgb(244, 245, 248);
-  color: black;
-  border: none;
-  border-radius: 6px;
-  font-weight: bold;
-  cursor: pointer;
+    padding: 10px 20px;
+    background-color: rgb(244, 245, 248);
+    color: black;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 .menu .links {
-  padding: 0;
-  gap: 8px;
-  display: flex;
-  align-items: center;
-  align-items: baseline;
+    padding: 0;
+    gap: 8px;
+    display: flex;
+    align-items: center;
+    align-items: baseline;
 }
 
 .menu .links li {
-  list-style: none;
+    list-style: none;
 }
 
 .menu .links a {
-  text-decoration: none;
-  color: black;
-  border-radius: 5px;
-  padding: 12px 20px;
-  background-color: rgb(244, 245, 248);
+    text-decoration: none;
+    color: black;
+    border-radius: 5px;
+    padding: 12px 20px;
+    background-color: rgb(244, 245, 248);
 }
 .search-buttons {
-  display: flex;
-  gap: 8px;
+    display: flex;
+    gap: 8px;
 }
 
 .search-buttons .logo-btn {
-  width: 44px;
-  height: 44px;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s ease;
-  outline: none;
+    width: 44px;
+    height: 44px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    outline: none;
 }
 
 .search-buttons .advice {
-  background-color: #222;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  padding: 14px 28px;
-  font-size: 16px;
-  cursor: pointer;
-  font-weight: 500;
-  outline: none;
+    background-color: #222;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 500;
+    outline: none;
 }
-
 
 .cart-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-  background: #ffffff;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-  font-family: Arial, sans-serif;
-  margin: auto;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    font-family: Arial, sans-serif;
+    margin: auto;
 }
-
 
 .cart-table th {
-  background: #111;
-  color: white;
-  padding: 14px;
-  text-align: left;
-  font-size: 14px;
-  letter-spacing: 0.5px;
+    background: #111;
+    color: white;
+    padding: 14px;
+    text-align: left;
+    font-size: 14px;
+    letter-spacing: 0.5px;
 }
-
 
 .cart-table td {
-  padding: 14px;
-  border-bottom: 1px solid #eee;
-  font-size: 14px;
+    padding: 14px;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
 }
-
 
 .cart-table tr:hover {
-  background-color: #f8f8f8;
-  transition: 0.2s ease;
+    background-color: #f8f8f8;
+    transition: 0.2s ease;
 }
-
 
 .cart-img {
-  width: 60px;
-  height: 60px;
-  object-fit: cover;
-  border-radius: 8px;
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
 }
 
-
 .quantity-input {
-  width: 60px;
-  padding: 6px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  text-align: center;
-  font-size: 14px;
+    width: 60px;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 14px;
 }
 
 .quantity-input:focus {
-  outline: none;
-  border-color: #111;
+    outline: none;
+    border-color: #111;
 }
 
-
 .delete-item {
-  padding: 6px 12px;
-  background: #ff4d4f;
-  border: none;
-  color: white;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: 0.2s ease;
+    padding: 6px 12px;
+    background: #ff4d4f;
+    border: none;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s ease;
 }
 
 .delete-item:hover {
-  background: #d9363e;
+    background: #d9363e;
 }
 
-
 .cart-total {
-  margin-top: 20px;
-  text-align: right;
-  font-size: 18px;
-  font-weight: bold;
+    margin-top: 20px;
+    text-align: right;
+    font-size: 18px;
+    font-weight: bold;
 }
 
 #total-price {
-  color: #111;
-  font-size: 20px;
+    color: #111;
+    font-size: 20px;
 }
 
 .cart-container {
@@ -232,17 +223,20 @@ header .right-side .more a {
 }
 
 .buy-btn {
-    width: 500px;
+    flex-grow: 1;
+    max-width: 220px;
     height: 50px;
-    background-color:black;
-    color:white;
+    background-color: black;
+    color: white;
     font-size: 18px;
-    border: none;
+    border: 1px solid transparent;
     border-radius: 8px;
     cursor: pointer;
+    transition: 0.2s ease;
 }
 
 .buy-btn:hover {
-    background-color:white;
+    background-color: white;
     color: #111;
+    border-color: black;
 }

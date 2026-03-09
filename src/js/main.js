@@ -75,13 +75,6 @@ function closeFilterDialog() {
 
 // dialog.close();
 
-// render UI
-//
-catalog.innerHTML = generatedHtml;
-filterSelect.innerHTML = generatedTagsHtml;
-// render UI
-//
-
 document.addEventListener("click", (event) => {
   const button = event.target.closest("#addToCartBtn");
   if (!button) return;
@@ -91,7 +84,14 @@ document.addEventListener("click", (event) => {
 
   const itemId = button.dataset.id;
 
-  itemsStore.addItem(itemId);
+  itemsStore.addItem({ id: Number(itemId), quantity: 1 });
 
   renderCartCount(itemsStore);
 });
+
+// initial render UI
+catalog.innerHTML = generatedHtml;
+filterSelect.innerHTML = generatedTagsHtml;
+renderCartCount(itemsStore);
+// initial render UI
+//

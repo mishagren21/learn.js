@@ -766,23 +766,166 @@ function closeFilterDialog() {
     dialog.close();
 }
 // dialog.close();
-// render UI
-//
-catalog.innerHTML = generatedHtml;
-filterSelect.innerHTML = generatedTagsHtml;
-// render UI
-//
 document.addEventListener("click", (event)=>{
     const button = event.target.closest("#addToCartBtn");
     if (!button) return;
     event.preventDefault();
     event.stopPropagation();
     const itemId = button.dataset.id;
-    (0, _itemsStoreJs.itemsStore).addItem(itemId);
+    (0, _itemsStoreJs.itemsStore).addItem({
+        id: Number(itemId),
+        quantity: 1
+    });
     (0, _utilsJs.renderCartCount)((0, _itemsStoreJs.itemsStore));
 });
+// initial render UI
+catalog.innerHTML = generatedHtml;
+filterSelect.innerHTML = generatedTagsHtml;
+(0, _utilsJs.renderCartCount)((0, _itemsStoreJs.itemsStore)); // initial render UI
+ //
 
-},{"./data.js":"a4kWt","./utils.js":"bMpAD","./itemsStore.js":"1V5rP"}],"a4kWt":[function(require,module,exports,__globalThis) {
+},{"./utils.js":"bMpAD","./data.js":"a4kWt","./itemsStore.js":"1V5rP"}],"bMpAD":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "generateCatalogTemplate", ()=>generateCatalogTemplate);
+parcelHelpers.export(exports, "generateSingleItemTemplate", ()=>generateSingleItemTemplate);
+parcelHelpers.export(exports, "renderCartCount", ()=>renderCartCount);
+function subtractPercent(amount, percent = 0) {
+    return amount - amount * percent / 100;
+}
+const generateCatalogTemplate = (items = [])=>{
+    let generatedHtml = "";
+    items.forEach((item)=>{
+        let tags = "";
+        item?.tags?.forEach((tag)=>tags += `<span class="tag ${tag.value}">${tag.label}</span>`);
+        generatedHtml += `
+           <a href="./item-detail.html?id=${item.id}" class="item" data-id=${item.id}>
+               <div class="image-container">
+                   <div class="tags-container">
+                     ${tags}
+                   </div>
+                   <img src=${item.img}>
+               </div>
+               <div class="text-container">
+                   <h1>${item.name}</h1>
+                   <div class="text">
+                       <div class="line">
+                           <p class="label">\u{412}\u{435}\u{441}</p>
+                           <p class="value">${item.weightKg}</p>
+                       </div>
+                       <div class="line">
+                           <p class="label">\u{414}\u{432}\u{438}\u{433}\u{430}\u{442}\u{435}\u{43B}\u{44C}</p>
+                           <p class="value">${item.motor.voltage}</p>
+                       </div>
+                       <div class="line">
+                           <p class="label">\u{414}\u{438}\u{430}\u{43C}. \u{41E}\u{431}\u{440}\u{430}\u{431}.</p>
+                           <p class="value">${item.motor.diametr}</p>
+                       </div>
+                   </div>
+                   <div class="price">
+                       <p>${item.price} \u{20BD}</p>
+                       ${item?.discount ? `<p class="discount">${subtractPercent(item.price, item.discount)} \u{20BD}</p>` : ""}
+                   </div>
+                   <button type="button" data-id="${item.id}" id="addToCartBtn">\u{414}\u{43E}\u{431}\u{430}\u{432}\u{438}\u{442}\u{44C} \u{432} \u{43A}\u{43E}\u{440}\u{437}\u{438}\u{43D}\u{443} </button>
+                 </div>
+             </a>
+         `;
+    });
+    return generatedHtml;
+};
+const generateSingleItemTemplate = (item)=>{
+    let generatedHtml = "";
+    let tags = "";
+    item?.tags?.forEach((tag)=>tags += `<span class="tag ${tag.value}">${tag.label}</span>`);
+    generatedHtml += `
+           <a href="./item-detail.html?id=${item.id}" class="item" data-id=${item.id}>
+               <div class="image-container">
+                   <div class="tags-container">
+                     ${tags}
+                   </div>
+                   <img src=${item.img}>
+               </div>
+               <div class="text-container">
+                   <h1>${item.name}</h1>
+                   <p class="in-stock">${item.inStock}</p>
+                   <div class="text">
+                       <div class="line">
+                           <p class="label">\u{412}\u{435}\u{441}</p>
+                           <p class="value">${item.weightKg}</p>
+                       </div>
+                       <div class="line">
+                           <p class="label">\u{414}\u{432}\u{438}\u{433}\u{430}\u{442}\u{435}\u{43B}\u{44C}</p>
+                           <p class="value">${item.motor.voltage}</p>
+                       </div>
+                       <div class="line">
+                           <p class="label">\u{414}\u{438}\u{430}\u{43C}. \u{41E}\u{431}\u{440}\u{430}\u{431}.</p>
+                           <p class="value">${item.motor.diametr}</p>
+                       </div>
+                       <div class="line">
+                       <p class="label">\u{412}\u{438}\u{441}\u{43E}\u{442}\u{430}<p/>
+                       <p class="value">${item.motor.height}</p>
+                       </div>
+                   </div>
+                 <div class="price">${item?.discount ? `
+                          <p class="old-price">${item.price} \u{20BD}</p>
+                          <p class="discount">${subtractPercent(item.price, item.discount)} \u{20BD}</p>` : `
+                          <p class="current-price">${item.price} \u{20BD}</p>
+                        `}
+                  </div>
+                   <div class="btn-container">
+                   <button class="buy-btn">\u{41A}\u{443}\u{43F}\u{438}\u{442}\u{44C}</button>
+                   <button class="add-inbasket" data-id="${item.id}" id="addToCartBtn">\u{414}\u{43E}\u{431}\u{430}\u{432}\u{438}\u{442}\u{44C} \u{432} \u{43A}\u{43E}\u{440}\u{437}\u{438}\u{43D}\u{443}</button>
+                 </div>
+                 </div>
+             </a>
+         `;
+    return generatedHtml;
+};
+function renderCartCount(store) {
+    const counter = document.querySelector("#cart-count");
+    if (counter) return counter.textContent = store.getItems().length;
+    console.log("cart count not found");
+}
+document.querySelectorAll(".add-to-cart-btn").forEach((button)=>{
+    button.addEventListener("click", function(e) {
+        e.preventDefault();
+        const id = this.dataset.id;
+        console.log("Added:", id);
+        this.disabled = true;
+    });
+});
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"1P4xB"}],"1P4xB":[function(require,module,exports,__globalThis) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, '__esModule', {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === 'default' || key === '__esModule' || Object.prototype.hasOwnProperty.call(dest, key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
+
+},{}],"a4kWt":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "items", ()=>items);
@@ -994,175 +1137,45 @@ module.exports = module.bundle.resolve("item-automatic.9d7820f8.png") + "?" + Da
 },{}],"fiIek":[function(require,module,exports,__globalThis) {
 module.exports = module.bundle.resolve("automatic-blue.cf1353dc.png") + "?" + Date.now();
 
-},{}],"1P4xB":[function(require,module,exports,__globalThis) {
-exports.interopDefault = function(a) {
-    return a && a.__esModule ? a : {
-        default: a
-    };
-};
-exports.defineInteropFlag = function(a) {
-    Object.defineProperty(a, '__esModule', {
-        value: true
-    });
-};
-exports.exportAll = function(source, dest) {
-    Object.keys(source).forEach(function(key) {
-        if (key === 'default' || key === '__esModule' || Object.prototype.hasOwnProperty.call(dest, key)) return;
-        Object.defineProperty(dest, key, {
-            enumerable: true,
-            get: function() {
-                return source[key];
-            }
-        });
-    });
-    return dest;
-};
-exports.export = function(dest, destName, get) {
-    Object.defineProperty(dest, destName, {
-        enumerable: true,
-        get: get
-    });
-};
-
-},{}],"bMpAD":[function(require,module,exports,__globalThis) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "generateCatalogTemplate", ()=>generateCatalogTemplate);
-parcelHelpers.export(exports, "generateSingleItemTemplate", ()=>generateSingleItemTemplate);
-parcelHelpers.export(exports, "renderCartCount", ()=>renderCartCount);
-function subtractPercent(amount, percent = 0) {
-    return amount - amount * percent / 100;
-}
-const generateCatalogTemplate = (items = [])=>{
-    let generatedHtml = "";
-    items.forEach((item)=>{
-        let tags = "";
-        item?.tags?.forEach((tag)=>tags += `<span class="tag ${tag.value}">${tag.label}</span>`);
-        generatedHtml += `
-           <a href="./item-detail.html?id=${item.id}" class="item" data-id=${item.id}>
-               <div class="image-container">
-                   <div class="tags-container">
-                     ${tags}
-                   </div>
-                   <img src=${item.img}>
-               </div>
-               <div class="text-container">
-                   <h1>${item.name}</h1>
-                   <div class="text">
-                       <div class="line">
-                           <p class="label">\u{412}\u{435}\u{441}</p>
-                           <p class="value">${item.weightKg}</p>
-                       </div>
-                       <div class="line">
-                           <p class="label">\u{414}\u{432}\u{438}\u{433}\u{430}\u{442}\u{435}\u{43B}\u{44C}</p>
-                           <p class="value">${item.motor.voltage}</p>
-                       </div>
-                       <div class="line">
-                           <p class="label">\u{414}\u{438}\u{430}\u{43C}. \u{41E}\u{431}\u{440}\u{430}\u{431}.</p>
-                           <p class="value">${item.motor.diametr}</p>
-                       </div>
-                   </div>
-                   <div class="price">
-                       <p>${item.price} \u{20BD}</p>
-                       ${item?.discount ? `<p class="discount">${subtractPercent(item.price, item.discount)} \u{20BD}</p>` : ""}
-                   </div>
-                   <button type="button" data-id="${item.id}" id="addToCartBtn">\u{41A}\u{443}\u{43F}\u{438}\u{442}\u{44C}</button>
-                 </div>
-             </a>
-         `;
-    });
-    return generatedHtml;
-};
-const generateSingleItemTemplate = (item)=>{
-    let generatedHtml = "";
-    let tags = "";
-    item?.tags?.forEach((tag)=>tags += `<span class="tag ${tag.value}">${tag.label}</span>`);
-    generatedHtml += `
-           <a href="./item-detail.html?id=${item.id}" class="item" data-id=${item.id}>
-               <div class="image-container">
-                   <div class="tags-container">
-                     ${tags}
-                   </div>
-                   <img src=${item.img}>
-               </div>
-               <div class="text-container">
-                   <h1>${item.name}</h1>
-                   <p class="in-stock">${item.inStock}</p>
-                   <div class="text">
-                       <div class="line">
-                           <p class="label">\u{412}\u{435}\u{441}</p>
-                           <p class="value">${item.weightKg}</p>
-                       </div>
-                       <div class="line">
-                           <p class="label">\u{414}\u{432}\u{438}\u{433}\u{430}\u{442}\u{435}\u{43B}\u{44C}</p>
-                           <p class="value">${item.motor.voltage}</p>
-                       </div>
-                       <div class="line">
-                           <p class="label">\u{414}\u{438}\u{430}\u{43C}. \u{41E}\u{431}\u{440}\u{430}\u{431}.</p>
-                           <p class="value">${item.motor.diametr}</p>
-                       </div>
-                       <div class="line">
-                       <p class="label">\u{412}\u{438}\u{441}\u{43E}\u{442}\u{430}<p/>
-                       <p class="value">${item.motor.height}</p>
-                       </div>
-                   </div>
-                 <div class="price">${item?.discount ? `
-                          <p class="old-price">${item.price} \u{20BD}</p>
-                          <p class="discount">${subtractPercent(item.price, item.discount)} \u{20BD}</p>` : `
-                          <p class="current-price">${item.price} \u{20BD}</p>
-                        `}
-                  </div>
-                   <div class="btn-container">
-                   <button class="buy-btn">\u{41A}\u{443}\u{43F}\u{438}\u{442}\u{44C}</button>
-                   <button class="add-inbasket" data-id="${item.id}" id="addToCartBtn">\u{414}\u{43E}\u{431}\u{430}\u{432}\u{438}\u{442}\u{44C} \u{432} \u{43A}\u{43E}\u{440}\u{437}\u{438}\u{43D}\u{443}</button>
-                 </div>
-                 </div>
-             </a>
-         `;
-    return generatedHtml;
-};
-function renderCartCount(store) {
-    const counter = document.querySelector("#cart-count");
-    if (counter) return counter.textContent = store.getItems().length;
-    console.log("cart count not found");
-}
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"1P4xB"}],"1V5rP":[function(require,module,exports,__globalThis) {
+},{}],"1V5rP":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "ItemsStore", ()=>ItemsStore);
 parcelHelpers.export(exports, "itemsStore", ()=>itemsStore);
 class ItemsStore {
     constructor(){
-        this.items = window.localStorage.getItem("items") ? new Set(JSON.parse(window.localStorage.getItem("items"))) : new Set([]);
+        this.items = window.localStorage.getItem("items") ? new Map(JSON.parse(window.localStorage.getItem("items")).map(([id, item])=>[
+                Number(id),
+                item
+            ])) : new Map([]);
     }
-    saveItemsToLocalStorage() {
+    save() {
         window.localStorage.setItem("items", JSON.stringify([
             ...this.items
         ]));
     }
     addItem(item) {
-        this.items.add(item);
-        this.saveItemsToLocalStorage();
+        this.items.set(item.id, item);
+        this.save();
     }
     removeItem(id) {
         this.items.delete(id);
-        this.saveItemsToLocalStorage();
+        this.save();
     }
     updateItem(id, updatedItem) {
-        this.items.delete(id);
-        this.items.add(updatedItem);
-        this.saveItemsToLocalStorage();
+        const itemId = Number(id);
+        this.items.set(itemId, {
+            ...updatedItem,
+            id: itemId
+        });
+        this.save();
     }
     getItems() {
-        return Array.from(this.items);
-    }
-    getItemById(id) {
-        return this.items.find((item)=>item === id);
+        return Array.from(this.items.values());
     }
     clearItems() {
-        this.items = new Set([]);
-        this.saveItemsToLocalStorage();
+        this.items = new Map([]);
+        this.save();
     }
 }
 const itemsStore = new ItemsStore();
