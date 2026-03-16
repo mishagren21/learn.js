@@ -45,7 +45,7 @@ export const generateCatalogTemplate = (items = []) => {
   return generatedHtml;
 };
 
-export const generateSingleItemTemplate = (item) => {
+export const generateSingleItemTemplate = (item, isInCart) => {
   let generatedHtml = "";
 
   let tags = "";
@@ -53,7 +53,7 @@ export const generateSingleItemTemplate = (item) => {
     (tag) => (tags += `<span class="tag ${tag.value}">${tag.label}</span>`),
   );
   generatedHtml += `
-           <a href="./item-detail.html?id=${item.id}" class="item" data-id=${item.id}>
+           <div class="item" data-id=${item.id}>
                <div class="image-container">
                    <div class="tags-container">
                      ${tags}
@@ -92,11 +92,11 @@ export const generateSingleItemTemplate = (item) => {
                  }
                   </div>
                    <div class="btn-container">
-                   <button class="buy-btn">Купить</button>
-                   <button class="add-inbasket" data-id="${item.id}" id="addToCartBtn">Добавить в корзину</button>
+                   <button data-id="${item.id}" class="buy-btn">Купить</button>
+                   <button class="add-inbasket add-to-cart-btn" data-id="${item.id}" ${isInCart ? "disabled" : ""}>Добавить в корзину</button>
                  </div>
                  </div>
-             </a>
+             </div>
          `;
 
   return generatedHtml;

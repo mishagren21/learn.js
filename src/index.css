@@ -108,18 +108,18 @@ header .right-side .more a {
     outline: none;
 }
 .search-buttons span {
-  background: #ff3b3b;
-  color: white;
-  font-size: 12px;
-  font-weight: bold;
-  width: 20px;
-  height: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
- text-decoration: none;
+    background: #ff3b3b;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
 }
 .section-1 {
     max-width: 1920px;
@@ -501,7 +501,6 @@ header .right-side .more a {
 
 .section-2 .catalog-container {
     flex-grow: 1;
-    
 }
 
 .section-2 .search-buttons {
@@ -692,7 +691,13 @@ header .right-side .more a {
     color: aliceblue;
     width: 100%;
     cursor: pointer;
-    
+}
+
+.section-2 .item button:disabled {
+    background: #f5f5f5;
+    border: 1px solid #ccc;
+    color: #aaa;
+    cursor: not-allowed;
 }
 
 .section-2 .middel-containers {

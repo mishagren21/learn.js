@@ -833,12 +833,12 @@ const generateCatalogTemplate = (items = [])=>{
     });
     return generatedHtml;
 };
-const generateSingleItemTemplate = (item)=>{
+const generateSingleItemTemplate = (item, isInCart)=>{
     let generatedHtml = "";
     let tags = "";
     item?.tags?.forEach((tag)=>tags += `<span class="tag ${tag.value}">${tag.label}</span>`);
     generatedHtml += `
-           <a href="./item-detail.html?id=${item.id}" class="item" data-id=${item.id}>
+           <div class="item" data-id=${item.id}>
                <div class="image-container">
                    <div class="tags-container">
                      ${tags}
@@ -873,11 +873,11 @@ const generateSingleItemTemplate = (item)=>{
                         `}
                   </div>
                    <div class="btn-container">
-                   <button class="buy-btn">\u{41A}\u{443}\u{43F}\u{438}\u{442}\u{44C}</button>
-                   <button class="add-inbasket" data-id="${item.id}" id="addToCartBtn">\u{414}\u{43E}\u{431}\u{430}\u{432}\u{438}\u{442}\u{44C} \u{432} \u{43A}\u{43E}\u{440}\u{437}\u{438}\u{43D}\u{443}</button>
+                   <button data-id="${item.id}" class="buy-btn">\u{41A}\u{443}\u{43F}\u{438}\u{442}\u{44C}</button>
+                   <button class="add-inbasket add-to-cart-btn" data-id="${item.id}" ${isInCart ? "disabled" : ""}>\u{414}\u{43E}\u{431}\u{430}\u{432}\u{438}\u{442}\u{44C} \u{432} \u{43A}\u{43E}\u{440}\u{437}\u{438}\u{43D}\u{443}</button>
                  </div>
                  </div>
-             </a>
+             </div>
          `;
     return generatedHtml;
 };
@@ -1155,11 +1155,11 @@ class ItemsStore {
         ]));
     }
     addItem(item) {
-        this.items.set(item.id, item);
+        this.items.set(Number(item.id), item);
         this.save();
     }
     removeItem(id) {
-        this.items.delete(id);
+        this.items.delete(Number(id));
         this.save();
     }
     updateItem(id, updatedItem) {
@@ -1172,6 +1172,9 @@ class ItemsStore {
     }
     getItems() {
         return Array.from(this.items.values());
+    }
+    getItem(id) {
+        return this.items.get(Number(id));
     }
     clearItems() {
         this.items = new Map([]);

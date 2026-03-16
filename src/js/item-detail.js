@@ -1,23 +1,26 @@
 import { items } from "./data";
 import { itemsStore } from "./itemsStore";
-import { generateSingleItemTemplate } from "./utils";
+import { initEvents } from "./item-detail-events";
+import { generateSingleItemTemplate, renderCartCount } from "./utils";
 
-const itemId = new URLSearchParams(location.search).get("id");
+function renderItem(store, items) {
+  const itemId = Number(new URLSearchParams(location.search).get("id"));
 
-const item = items.find((item) => item.id === Number(itemId));
+  const item = items.find((item) => item.id === itemId);
 
-const productItem = document.querySelector("#product-item");
+  const productItem = document.querySelector("#product-item");
 
-productItem.innerHTML = generateSingleItemTemplate(item);
+  const isInCart = store.getItem(itemId);
 
-document.addEventListener("click", (event) => {
-  const button = event.target.closest("#addToCartBtn");
-  if (!button) return;
+  productItem.innerHTML = generateSingleItemTemplate(item, isInCart);
+}
 
-  event.preventDefault();
-  event.stopPropagation();
+function updateUI() {
+  renderItem(itemsStore, items);
+  renderCartCount(itemsStore);
+}
 
-  const itemId = button.dataset.id;
+initEvents(itemsStore, updateUI);
 
-  itemsStore.addItem({ id: Number(itemId), quantity: 1 });
-});
+// initial render ui
+updateUI();

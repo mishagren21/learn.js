@@ -15,14 +15,13 @@ export class ItemsStore {
   }
 
   addItem(item) {
-    this.items.set(item.id, item);
+    this.items.set(Number(item.id), item);
 
     this.save();
   }
 
   removeItem(id) {
-    this.items.delete(id);
-
+    this.items.delete(Number(id));
     this.save();
   }
 
@@ -35,6 +34,10 @@ export class ItemsStore {
 
   getItems() {
     return Array.from(this.items.values());
+  }
+
+  getItem(id) {
+    return this.items.get(Number(id));
   }
 
   clearItems() {
