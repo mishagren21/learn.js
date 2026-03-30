@@ -92,6 +92,7 @@ header .right-side .more a {
     display: flex;
     align-items: center;
     align-items: baseline;
+    flex-wrap: wrap;
 }
 
 .menu .links li {
@@ -104,6 +105,7 @@ header .right-side .more a {
     border-radius: 5px;
     padding: 12px 20px;
     background-color: rgb(244, 245, 248);
+    display: block;
 }
 .search-buttons {
     display: flex;
@@ -241,30 +243,49 @@ header .right-side .more a {
     border-color: black;
 }
 .modal {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.5);
-  justify-content: center;
-  align-items: center;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
 }
 .modal-content {
     display: flex;
-    
 }
 .modal-content {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  width: 300px;
-  text-align: center;
+    text-align: center;
+    background: #fff;
+    border-radius: 10px;
+    width: 600px;
+    padding: 15px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content h2 {
+    margin-bottom: 10px;
+}
+
+.modal-content form {
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.modal-content form button {
+    grid-column-start: 1;
+    grid-column-end: 3;
 }
 
 .close {
-  cursor: pointer;
-  float: right;
-  font-size: 20px;
+    cursor: pointer;
+    font-size: 20px;
+    align-self: flex-end;
 }
