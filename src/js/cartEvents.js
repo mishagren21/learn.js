@@ -28,23 +28,20 @@ export const initCartEvents = (store, updateUI) => {
   });
 };
 
-
-
-
 const buyBtn = document.getElementById("buy-btn");
 const modal = document.getElementById("modal");
 const close = document.querySelector(".close");
 
 buyBtn.onclick = () => {
   modal.style.display = "flex";
-}
+};
 
 close.onclick = () => {
   modal.style.display = "none";
-}
+};
 
 window.onclick = (e) => {
   if (e.target === modal) {
     modal.style.display = "none";
   }
-}
+};

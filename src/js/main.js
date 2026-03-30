@@ -2,13 +2,31 @@ import { renderCartCount } from "./utils.js";
 import { items } from "./data.js";
 import { itemsStore } from "./itemsStore.js";
 import { generateCatalogTemplate } from "./utils.js";
+import { initMainEvents } from "./main-events.js";
+
+const renderMainList = (store, allProducts) => {
+  const catalog = document.querySelector("#catalog");
+
+  const selectedProducts = store.getItems();
+
+  const generatedHtml = generateCatalogTemplate(allProducts, selectedProducts);
+  catalog.innerHTML = generatedHtml;
+};
+
+function updateUI() {
+  renderMainList(itemsStore, items);
+  renderCartCount(itemsStore);
+}
+
+initMainEvents(itemsStore, updateUI);
+
+// initial render ui
+updateUI();
 
 const catalog = document.querySelector("#catalog");
 const dialog = document.querySelector("#myDialog");
 const filterSelect = document.querySelector("#filterSelect");
 const selectFilters = document.querySelector("#selected-filters");
-
-const generatedHtml = generateCatalogTemplate(items);
 
 let generatedTagsHtml = "";
 const allTags = [];
@@ -74,5 +92,3 @@ function closeFilterDialog() {
 }
 
 // dialog.close();
-
-

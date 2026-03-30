@@ -2,9 +2,11 @@ function subtractPercent(amount, percent = 0) {
   return amount - (amount * percent) / 100;
 }
 
-export const generateCatalogTemplate = (items = []) => {
+export const generateCatalogTemplate = (items = [], selectedProducts = []) => {
   let generatedHtml = "";
   items.forEach((item) => {
+    const isSelected = selectedProducts.some((p) => p.id === item.id);
+
     let tags = "";
     item?.tags?.forEach(
       (tag) => (tags += `<span class="tag ${tag.value}">${tag.label}</span>`),
@@ -37,7 +39,7 @@ export const generateCatalogTemplate = (items = []) => {
                        <p>${item.price} ₽</p>
                        ${item?.discount ? `<p class="discount">${subtractPercent(item.price, item.discount)} ₽</p>` : ""}
                    </div>
-                   <button type="button" data-id="${item.id}" id="addToCartBtn">Добавить в корзину </button>
+                   <button type="button" ${isSelected ? "disabled" : ""} data-id="${item.id}" id="addToCartBtn">Добавить в корзину </button>
                  </div>
              </a>
          `;
@@ -119,51 +121,3 @@ document.querySelectorAll(".add-to-cart-btn").forEach((button) => {
     this.disabled = true;
   });
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
