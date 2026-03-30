@@ -1,69 +1,83 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Корзина</title>
-        <link rel="stylesheet" href="./cart.css" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Golos+Text&display=swap"
-            rel="stylesheet"
-        />
-    </head>
-    <body id="cart-page">
-        <header>
-            <div class="max-content">
-                <div class="left-side">
-                    <img src="./img/logo.png" />
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Корзина</title>
+    <link rel="stylesheet" href="./cart.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Golos+Text&display=swap" rel="stylesheet" />
+</head>
+
+<body id="cart-page">
+    <header>
+        <div class="max-content">
+            <div class="left-side">
+                <img src="./img/logo.png" />
+            </div>
+            <div class="right-side">
+                <div class="contacts">
+                    <a href="#">okoprom@gmail.com</a>
+                    <a href="#">+7 (800) 707-31-01</a>
                 </div>
-                <div class="right-side">
-                    <div class="contacts">
-                        <a href="#">okoprom@gmail.com</a>
-                        <a href="#">+7 (800) 707-31-01</a>
-                    </div>
-                    <div class="more">
-                        <a href="#">Доставка и оплата</a>
-                        <a href="#">Гарантия</a>
-                    </div>
+                <div class="more">
+                    <a href="#">Доставка и оплата</a>
+                    <a href="#">Гарантия</a>
                 </div>
             </div>
-        </header>
-        <div class="menu">
-            <ul class="links">
-                <li>
-                    <a href="./index.html">
-                        <img src="./img/arrow-right.png" />
-                    </a>
-                </li>
-                <li><a href="#">Каталог</a></li>
-                <li><a href="#">Наше производство</a></li>
-                <li><a href="#">О компании</a></li>
-                <li><a href="#">Контакты</a></li>
-            </ul>
-            <div class="search-buttons">
-                <button class="logo-btn">
-                    <img src="./img/search.png" alt="search" />
-                </button>
-                <button class="logo-btn">
-                    <img src="./img/vector.png" alt="vector" />
-                    <span id="cart-count"></span>
-                </button>
-                <button class="advice">Запросить консультацию</button>
-            </div>
         </div>
-
-        <div class="title">
-            <h1>Корзина</h1>
-            <img src="./img/vector.png" />
+    </header>
+    <div class="menu">
+        <ul class="links">
+            <li>
+                <a href="./index.html">
+                    <span>← На главную</span>
+                </a>
+            </li>
+            <li><a href="#">Каталог</a></li>
+            <li><a href="#">Наше производство</a></li>
+            <li><a href="#">О компании</a></li>
+            <li><a href="#">Контакты</a></li>
+        </ul>
+        <div class="search-buttons">
+            <button class="logo-btn">
+                <img src="./img/search.png" alt="search" />
+            </button>
+            <button class="logo-btn">
+                <img src="./img/vector.png" alt="vector" />
+                <span id="cart-count"></span>
+            </button>
+            <button class="advice">Запросить консультацию</button>
         </div>
+    </div>
 
-        <div class="cart-items" id="cart-items"></div>
+    <div class="title">
+        <h1>Корзина</h1>
+        <img src="./img/vector.png" />
+    </div>
 
-        <div class="cart-container">
-            <button class="buy-btn" data-id="buy" id="buy-btn">Купить</button>
-        </div>
+    <div class="cart-items" id="cart-items"></div>
 
-        <script type="module" src="./js/cartUI.js"></script>
-    </body>
+    <div class="cart-container">
+        <button class="buy-btn" data-id="buy" id="buy-btn">Купить</button>
+        <div class="modal" id="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Оформлення заказу</h2>
+    <form id="order-form">
+      <input type="text" placeholder="Ім'я" required>
+      <input type="text" placeholder="Вулиця" required>
+      <input type="text" placeholder="Місто" required>
+      <input type="text" placeholder="Країна" required>
+
+      <button type="submit" class="order-btn">Замовити</button>
+    </form>
+   
+</div>
+    </div>
+
+    <script type="module" src="./js/cartUI.js"></script>
+</body>
+
 </html>
