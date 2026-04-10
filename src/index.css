@@ -684,15 +684,24 @@ header .right-side .more a {
     padding-bottom: 20px;
 }
 
-.section-2 .item button {
+.section-2 .item .byu-btn {
     border-radius: 8px;
     padding: 12px 20px 12px 20px;
     background-color: #1a1a1a;
     color: aliceblue;
     width: 100%;
     cursor: pointer;
+    margin-bottom: 10px;
 }
-
+.section-2 .item .remove-from-cart {
+     border-radius: 8px;
+    padding: 12px 20px 12px 20px;
+    background-color: white;
+    color: black;
+    width: 100%;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
 .section-2 .item button:disabled {
     background: #f5f5f5;
     border: 1px solid #ccc;

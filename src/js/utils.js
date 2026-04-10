@@ -39,7 +39,8 @@ export const generateCatalogTemplate = (items = [], selectedProducts = []) => {
                        <p>${item.price} ₽</p>
                        ${item?.discount ? `<p class="discount">${subtractPercent(item.price, item.discount)} ₽</p>` : ""}
                    </div>
-                   <button type="button" ${isSelected ? "disabled" : ""} data-id="${item.id}" id="addToCartBtn">Добавить в корзину </button>
+                   <button type="button" class="byu-btn" ${isSelected ? "disabled" : ""} data-id="${item.id}" id="addToCartBtn">Добавить в корзину </button>
+                   <button type="button" class="remove-from-cart" data-id="${item.id}">Удалить из корзины</button>
                  </div>
              </a>
          `;

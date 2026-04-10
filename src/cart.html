@@ -44,12 +44,33 @@
             <button class="logo-btn">
                 <img src="./img/search.png" alt="search" />
             </button>
-            <button class="logo-btn">
-                <img src="./img/vector.png" alt="vector" />
-                <span id="cart-count"></span>
+            <button class="logo-btn" id="cart-btn">
+                <a href="cart.html">
+                    <span id="cart-count"></span>
+                    <img src="./img/vector.png" alt="vector" />
+                </a>
             </button>
-            <button class="advice">Запросить консультацию</button>
+            <button class="advice" id="advice-btn">Запросить консультацию</button>
+
+            <div class="modal" id="advice-modal">
+                <div class="modal-content">
+                    <button class="close" id="close-advice">&times;</button>
+                    <h2>Запросить консультацию</h2>
+
+                    <form id="advice-form">
+                        <input type="text" placeholder="Ім'я" required>
+                        <input type="text" placeholder="Телефон" required>
+                        <input type="text" placeholder="Email" required>
+
+                        <button type="submit" class="order-btn">
+                            Отправить
+                        </button>
+                    </form>
+                </div>
+            </div>
         </div>
+
+    </div>
     </div>
 
     <div class="title">
@@ -62,22 +83,22 @@
     <div class="cart-container">
         <button class="buy-btn" data-id="buy" id="buy-btn">Купить</button>
         <div class="modal" id="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <h2>Оформлення заказу</h2>
-    <form id="order-form">
-      <input type="text" placeholder="Ім'я" required>
-      <input type="text" placeholder="Вулиця" required>
-      <input type="text" placeholder="Місто" required>
-      <input type="text" placeholder="Країна" required>
+            <div class="modal-content">
+                <button class="close">&times;</button>
+                <h2>Оформлення заказу</h2>
+                <form id="order-form">
+                    <input type="text" placeholder="Ім'я" required>
+                    <input type="text" placeholder="Вулиця" required>
+                    <input type="text" placeholder="Місто" required>
+                    <input type="text" placeholder="Країна" required>
 
-      <button type="submit" class="order-btn">Замовити</button>
-    </form>
-   
-</div>
-    </div>
+                    <button type="submit" class="order-btn">Замовити</button>
+                </form>
 
-    <script type="module" src="./js/cartUI.js"></script>
+            </div>
+        </div>
+
+        <script type="module" src="./js/cartUI.js"></script>
 </body>
 
 </html>
