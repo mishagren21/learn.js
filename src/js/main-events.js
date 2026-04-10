@@ -14,27 +14,26 @@ export const initMainEvents = (store, updateUI) => {
 
     updateUI();
   });
+
+  catalog.addEventListener("click", (e) => {
+    if (e.target.classList.contains("add-to-cart")) {
+      e.preventDefault();
+
+      const id = e.target.dataset.id;
+
+      store.addItem(id);
+      updateUI();
+    }
+  });
+
+  catalog.addEventListener("click", (event) => {
+    if (event.target.classList.contains("remove-from-cart")) {
+      event.preventDefault();
+
+      const id = event.target.dataset.id;
+
+      store.removeItem(id);
+      updateUI();
+    }
+  });
 };
-
-document.addEventListener("click", (e) => {
-
-  if (e.target.classList.contains("add-to-cart")) {
-    const id = e.target.dataset.id;
-
-    itemStore.addItem(id);
-
-    location.reload();
-  }
-
-});
-document.addEventListener("click", (e) => {
-
-  if (e.target.classList.contains("remove-from-cart")) {
-    const id = e.target.dataset.id;
-
-    itemStore.removeItem(id);
-
-    location.reload(); 
-  }
-
-});
