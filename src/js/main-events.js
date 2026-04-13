@@ -38,22 +38,20 @@ export const initMainEvents = (store, updateUI) => {
   });
 };
 
-
 const adviceBtn = document.getElementById("advice-btn");
 const adviceModal = document.getElementById("advice-modal");
 const closeAdvice = document.getElementById("close-advice");
 
 adviceBtn.onclick = function () {
-    adviceModal.style.display = "flex";
+  adviceModal.style.display = "flex";
 };
 
 closeAdvice.onclick = function () {
-    adviceModal.style.display = "none";
+  adviceModal.style.display = "none";
 };
 
 window.onclick = function (e) {
-    if (e.target === adviceModal) {
-        adviceModal.style.display = "none";
-    }
+  if (e.target === adviceModal) {
+    adviceModal.style.display = "none";
+  }
 };
-

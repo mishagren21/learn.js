@@ -1,68 +1,89 @@
 export const initCartEvents = (store, updateUI) => {
-  const cartContainer = document.getElementById("cart-items");
+  const cartContainer = document.getElementById("cart-page");
 
-  cartContainer.addEventListener("click", (e) => {
-    if (e.target.classList.contains("delete-btn")) {
-      const id = e.target.dataset.id;
-      store.removeItem(id);
-      updateUI();
-    }
+  cartContainer.addEventListener("click", (event) => {
+    initAdviceDialog(event); // advice dialog
+    initBuyDialog(event); // advice buy dialog
+
+    initItemCartActions(event, store, updateUI); // handle delete item from cart
   });
 
-  cartContainer.addEventListener("click", (e) => {
-    if (e.target.classList.contains("buy-btn")) {
-      const id = e.target.dataset.id;
-      console.log({ target: e.target, id });
-      // updateUI();
-    }
-  });
-
-  cartContainer.addEventListener("change", (e) => {
-    if (e.target.classList.contains("qty-input")) {
-      const id = e.target.dataset.id;
-      const qty = Number(e.target.value);
+  cartContainer.addEventListener("change", (event) => {
+    if (event.target.classList.contains("qty-input")) {
+      const id = event.target.dataset.id;
+      const qty = Number(event.target.value);
 
       store.updateItem(id, { quantity: qty });
       updateUI();
     }
   });
+
+  cartContainer.addEventListener("submit", (event) => {
+    event.preventDefault();
+    initAdviceSubmitForm(event);
+    initBuySubmitForm(event);
+  });
 };
 
-const buyBtn = document.getElementById("buy-btn");
-const modal = document.getElementById("modal");
-const closeBtn = document.getElementById("close-btn");
-
-buyBtn.onclick = () => {
-  modal.style.display = "flex";
-};
-
-closeBtn.onclick = () => {
-  modal.style.display = "none";
-};
-
-window.onclick = (e) => {
-  if (e.target === modal) {
-    modal.style.display = "none";
+function initItemCartActions(event, store, updateUI) {
+  if (event.target.classList.contains("delete-btn")) {
+    const id = event.target.dataset.id;
+    store.removeItem(id);
+    updateUI();
   }
-};
+}
 
+function initAdviceDialog(event) {
+  if (event.target.id.includes("open-advice-modal-btn")) {
+    document.getElementById("advice-modal").style.display = "flex";
+  }
+  if (
+    event.target.id.includes("close-advice-modal-btn") ||
+    event.target.id.includes("dialog-overlay")
+  ) {
+    document.getElementById("advice-modal").style.display = "none";
+  }
+}
 
-const adviceBtn = document.getElementById("advice-btn");
-const adviceModal = document.getElementById("advice-modal");
-const closeAdvice = document.getElementById("close-advice");
+function initBuyDialog(event) {
+  if (event.target.id.includes("open-buy-dialog-btn")) {
+    document.getElementById("buy-modal").style.display = "flex";
+  }
+  if (
+    event.target.id.includes("close-buy-dialog-btn") ||
+    event.target.id.includes("dialog-overlay")
+  ) {
+    document.getElementById("buy-modal").style.display = "none";
+  }
+}
 
-adviceBtn.onclick = function () {
-    adviceModal.style.display = "flex";
-};
+function initAdviceSubmitForm(event) {
+  if (event.target.id.includes("advice-form")) {
+    const adviceForm = document.getElementById("advice-form");
+    const formData = new FormData(adviceForm);
 
-closeAdvice.onclick = function () {
-    adviceModal.style.display = "none";
-};
+    const data = Object.fromEntries(formData.entries());
 
-window.onclick = function (e) {
-    if (e.target === adviceModal) {
-        adviceModal.style.display = "none";
-    }
-};
+    console.log(data);
 
+    setTimeout(() => {
+      adviceForm.reset();
+      document.getElementById("advice-modal").style.display = "none"; // закрити модалку
+    }, 1000);
+  }
+}
 
+function initBuySubmitForm(event) {
+  if (event.target.id.includes("order-form")) {
+    const orderForm = document.getElementById("order-form");
+    const formData = new FormData(orderForm);
+
+    const data = Object.fromEntries(formData.entries());
+    console.log(data);
+
+    setTimeout(() => {
+      orderForm.reset();
+      document.getElementById("buy-modal").style.display = "none"; // закрити модалку
+    }, 1000);
+  }
+}

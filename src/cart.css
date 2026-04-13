@@ -81,7 +81,7 @@ header .right-side a {
     top: 0;
     z-index: 1;
     display: grid;
-  grid-template-columns: 1fr auto;
+    grid-template-columns: 1fr auto;
     padding: 30px 40px;
     align-items: center;
     background-color: var(--color-white);
@@ -91,7 +91,7 @@ header .right-side a {
     margin-bottom: 40px;
 }
 
-.menu button {
+.menu .order-btn {
     padding: 10px 20px;
     background-color: var(--color-dark);
     border: none;
@@ -249,12 +249,12 @@ header .right-side a {
 
 .modal {
     display: none;
-    position: fixed;
+    z-index: 2;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
     justify-content: center;
     align-items: center;
 }
@@ -312,126 +312,117 @@ header .right-side a {
     border: none;
 }
 
-
 .advice {
-  padding: 12px 22px;
-  background: var(--color-accent);
-  color:var(--color-border);
-  border: none;
-  border-radius: 10px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.3s;
+    padding: 12px 22px;
+    background-color: var(--color-dark);
+    color: var(--color-border);
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 .advice:hover {
-  background: var(--color-accent);
-  transform: translateY(-2px);
+    background: var(--color-accent);
+    transform: translateY(-2px);
 }
 
-
-
-#advice-modal {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: var(--color-dark);
-  backdrop-filter: blur(4px);
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
+.advice-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
 }
 
-
-
-#advice-modal .modal-content {
-  position: relative;
-  background: white;
-  padding: 35px;
-  border-radius: 16px;
-  width: 100%;
-  max-width: 420px;
-  box-shadow: 0 20px 60px var(--color-dark);
-  animation: modalFade 0.3s ease;
+.dialog-overlay {
+    inset: 0;
+    z-index: -1;
+    position: absolute;
+    backdrop-filter: blur(4px);
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
-
+.advice-modal .modal-content {
+    position: relative;
+    background: white;
+    padding: 35px;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 20px 60px var(--color-dark);
+    animation: modalFade 0.3s ease;
+}
 
 .modal-content h2 {
-  margin-bottom: 20px;
-  font-size: 22px;
-  font-weight: 600;
+    margin-bottom: 20px;
+    font-size: 22px;
+    font-weight: 600;
 }
 
-
-
-#advice-form input {
-  width: 100%;
-  padding: 12px 15px;
-  margin-bottom: 12px;
-  border-radius: 10px;
-  border: 1px solid var(--color-border);
-  outline: none;
-  transition: 0.2s;
-  font-size: 14px;
+.advice-modal input {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    border: 1px solid var(--color-border);
+    outline: none;
+    transition: 0.2s;
+    font-size: 14px;
 }
 
-#advice-form input:focus {
-  border-color: var(--color-accent);
-  box-shadow: 0 0 0 3px var(--color-dark);
+.advice-modal input:focus {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px var(--color-dark);
 }
-
-
 
 .order-btn {
-  width: 100%;
-  padding: 13px;
-  background: var(--color-accent);
-  color: var(--color-border);
-  border: none;
-  border-radius: 10px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.3s;
+    width: 100%;
+    padding: 13px;
+    background: var(--color-accent);
+    color: var(--color-border);
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 .order-btn:hover {
-  background: var(--color-accent);
+    background: var(--color-accent);
 }
 
-
-
-#close-advice {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  width: 25px;
-  height: 25px;
-  font-size: 25px;
-  border: none;
-  background: none;
-  cursor: pointer;
-  color: #555;
-  transition: 0.2s;
+.advice-modal .close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 25px;
+    height: 25px;
+    font-size: 25px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: #555;
+    transition: 0.2s;
 }
 
-#close-advice:hover {
-  color: var(--color-accent);
-  transform: scale(1.1);
+.advice-modal .close-btn:hover {
+    color: var(--color-accent);
+    transform: scale(1.1);
 }
-
-
 
 @keyframes modalFade {
-  from {
-    opacity: 0;
-    transform: translateY(-20px) scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+    from {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }

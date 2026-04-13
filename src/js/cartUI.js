@@ -49,33 +49,3 @@ initCartEvents(itemsStore, updateUI);
 
 // initial render ui
 updateUI();
-
-
-const adviceForm = document.getElementById("advice-form");
-
-adviceForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-
-  const formData = new FormData(adviceForm);
-
-
-  console.log(formData.get("name"));
-  console.log(formData.get("phone"));
-  console.log(formData.get("email"));
-
-
-  fetch("https://example.com/advice", {
-    method: "POST",
-    body: formData
-  })
-  .then(response => response.json())
-  .then(data => {
-    console.log("Форма відправлена", data);
-
-    adviceForm.reset(); 
-    document.getElementById("advice-modal").style.display = "none"; // закрити модалку
-  })
-  .catch(error => {
-    console.log("Помилка", error);
-  });
-});

@@ -50,16 +50,18 @@
                     <img src="./img/vector.png" alt="vector" />
                 </a>
             </button>
-            <button class="advice" id="advice-btn">Запросить консультацию</button>
-            <div class="modal" id="advice-modal">
+            <button class="advice" id="open-advice-modal-btn">Запросить консультацию</button>
+            <div class="advice-modal" id="advice-modal">
+                <div class="dialog-overlay" id="dialog-overlay"></div>
+
                 <div class="modal-content">
-                    <button class="close" id="close-advice">&times;</button>
+                    <button class="close-btn" id="close-advice-modal-btn">&times;</button>
                     <h2>Запросить консультацию</h2>
 
                     <form id="advice-form">
-                        <input type="text" placeholder="Ім'я" required>
-                        <input type="text" placeholder="Телефон" required>
-                        <input type="text" placeholder="Email" required>
+                        <input type="text" name="fname" placeholder="Ім'я" required>
+                        <input type="text" name="phone"  placeholder="Телефон" required>
+                        <input type="text" name="email" placeholder="Email" required>
 
                         <button type="submit" class="order-btn">
                             Отправить
@@ -80,16 +82,18 @@
     <div class="cart-items" id="cart-items"></div>
 
     <div class="cart-container">
-        <button class="buy-btn" data-id="buy" id="buy-btn">Купить</button>
-        <div class="modal" id="modal">
+        <button class="buy-btn" data-id="buy" id="open-buy-dialog-btn">Купить</button>
+        <div class="modal" id="buy-modal">
+            <div class="dialog-overlay" id="dialog-overlay"></div>
+
             <div class="modal-content">
-                <button class="close" id="close-btn" >&times;</button>
+                <button class="close" id="close-buy-dialog-btn" >&times;</button>
                 <h2>Оформлення заказу</h2>
                 <form id="order-form">
-                    <input type="text" placeholder="Ім'я" required>
-                    <input type="text" placeholder="Вулиця" required>
-                    <input type="text" placeholder="Місто" required>
-                    <input type="text" placeholder="Країна" required>
+                    <input type="text" name="user-name" placeholder="Ім'я" required>
+                    <input type="text" name="street" placeholder="Вулиця" required>
+                    <input type="text" name="city" placeholder="Місто" required>
+                    <input type="text" name="country" placeholder="Країна" required>
 
                     <button type="submit" class="order-btn">Замовити</button>
                 </form>
