@@ -95,7 +95,129 @@ header .right-side .more a {
     transition: all 0.2s ease;
     outline: none;
 }
+/* Кнопка открыть */
+.advice {
+  padding: 12px 22px;
+  background: var(--color-accent);
+  color:var(--color-border);
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
 
+.advice:hover {
+  background: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+
+/* Modal background */
+#advice-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-dark);
+  backdrop-filter: blur(4px);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+
+/* Modal content */
+#advice-modal .modal-content {
+  position: relative;
+  background: white;
+  padding: 35px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 20px 60px var(--color-dark);
+  animation: modalFade 0.3s ease;
+}
+
+
+/* Заголовок */
+.modal-content h2 {
+  margin-bottom: 20px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+
+/* Inputs */
+#advice-form input {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  border: 1px solid var(--color-border);
+  outline: none;
+  transition: 0.2s;
+  font-size: 14px;
+}
+
+#advice-form input:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-dark);
+}
+
+
+/* Submit button */
+.order-btn {
+  width: 100%;
+  padding: 13px;
+  background: var(--color-accent);
+  color: var(--color-border);
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.order-btn:hover {
+  background: var(--color-accent);
+}
+
+
+/* Кнопка закриття */
+#close-advice {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 25px;
+  height: 25px;
+  font-size: 25px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #555;
+  transition: 0.2s;
+}
+
+#close-advice:hover {
+  color: var(--color-accent);
+  transform: scale(1.1);
+}
+
+
+/* Анімація */
+@keyframes modalFade {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
 .search-buttons .advice {
     background-color: #222;
     color: #fff;

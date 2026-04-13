@@ -80,7 +80,8 @@ header .right-side a {
     position: sticky;
     top: 0;
     z-index: 1;
-    display: flex;
+    display: grid;
+  grid-template-columns: 1fr auto;
     padding: 30px 40px;
     align-items: center;
     background-color: var(--color-white);
@@ -311,74 +312,126 @@ header .right-side a {
     border: none;
 }
 
-#advice-modal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(4px);
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
+
+.advice {
+  padding: 12px 22px;
+  background: var(--color-accent);
+  color:var(--color-border);
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
 }
+
+.advice:hover {
+  background: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+
+
+#advice-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-dark);
+  backdrop-filter: blur(4px);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+
 
 #advice-modal .modal-content {
-    background: var(--color-white);
-    padding: 25px;
-    width: 420px;
-    border-radius: var(--radius-large);
-    box-shadow: var(--shadow-medium);
-    position: relative;
-    animation: modalFade 0.2s ease;
+  position: relative;
+  background: white;
+  padding: 35px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 20px 60px var(--color-dark);
+  animation: modalFade 0.3s ease;
 }
 
-#advice-modal h2 {
-    margin-bottom: 15px;
-    text-align: center;
+
+
+.modal-content h2 {
+  margin-bottom: 20px;
+  font-size: 22px;
+  font-weight: 600;
 }
 
-#advice-form {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
+
 
 #advice-form input {
-    padding: 12px;
-    border-radius: var(--radius-medium);
-    border: 1px solid var(--color-border);
-    font-size: 14px;
-    transition: var(--transition);
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  border: 1px solid var(--color-border);
+  outline: none;
+  transition: 0.2s;
+  font-size: 14px;
 }
 
 #advice-form input:focus {
-    outline: none;
-    border-color: var(--color-accent);
-    box-shadow: 0 0 5px rgba(255, 59, 59, 0.25);
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-dark);
 }
 
+
+
+.order-btn {
+  width: 100%;
+  padding: 13px;
+  background: var(--color-accent);
+  color: var(--color-border);
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.order-btn:hover {
+  background: var(--color-accent);
+}
+
+
+
 #close-advice {
-    position: absolute;
-    right: 15px;
-    top: 12px;
-    font-size: 22px;
-    border: none;
-    background: none;
-    cursor: pointer;
-    transition: 0.2s;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 25px;
+  height: 25px;
+  font-size: 25px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #555;
+  transition: 0.2s;
 }
 
 #close-advice:hover {
-    transform: scale(1.1);
+  color: var(--color-accent);
+  transform: scale(1.1);
 }
 
+
+
 @keyframes modalFade {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }

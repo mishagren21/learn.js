@@ -30,13 +30,13 @@ export const initCartEvents = (store, updateUI) => {
 
 const buyBtn = document.getElementById("buy-btn");
 const modal = document.getElementById("modal");
-const close = document.querySelector(".close");
+const closeBtn = document.getElementById("close-btn");
 
 buyBtn.onclick = () => {
   modal.style.display = "flex";
 };
 
-close.onclick = () => {
+closeBtn.onclick = () => {
   modal.style.display = "none";
 };
 
@@ -45,7 +45,6 @@ window.onclick = (e) => {
     modal.style.display = "none";
   }
 };
-
 
 
 const adviceBtn = document.getElementById("advice-btn");
