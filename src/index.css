@@ -50,7 +50,8 @@ header .right-side .more a {
 .menu {
     top: 0;
     z-index: 1;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr auto;
     position: sticky;
     padding-block: 30px;
     align-items: center;
